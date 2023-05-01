@@ -178,7 +178,7 @@ const Hero = () => {
                             </div>
 
                             <div className="flex space-x-2 sm:space-x-4">
-                                <svg className='md:w-24 md:h-16'  width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className='w-24 h-16'  width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.98334 21.9844L26 9.27303L48.0167 21.9844V47.407L26 60.1183L3.98334 47.407V21.9844Z" fill="url(#paint0_linear_1_436)" stroke="#2568FF" />
                                     <g filter="url(#filter0_b_1_436)">
                                         <path d="M33 12.6957L53.7846 24.6957V48.6957L33 60.6957L12.2154 48.6957V24.6957L33 12.6957Z" fill="url(#paint1_linear_1_436)" />
