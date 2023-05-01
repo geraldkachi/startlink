@@ -52,7 +52,7 @@ const PlaceOrderPage = () => {
 
                                 </div>
                             </div>
-                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count)}</p>
+                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count * 200)}</p>
                         </div>
                     </div>
 
