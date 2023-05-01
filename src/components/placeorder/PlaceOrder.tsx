@@ -8,12 +8,13 @@ import useAuth from "../../hooks/useAuth"
 interface Props {
   setStateNew?: Dispatch<SetStateAction<boolean>>
 }
+
 const PlaceOrder = ({ setStateNew }: Props) => {
  // const [count, setCount] = useState<number>(1)
  const count = useAuth(state => state.count)
  const costFee = useAuth(state => state.costFee)
 
- console.log(count, )
+ console.log(count )
 
 
   const formatKoboAmountForDisplay = (amount: number): string => {

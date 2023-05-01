@@ -35,7 +35,7 @@ const ContactInfo = ({ setStateNew }: Props) => {
                 </div>
                 <div className="mb-2">
                     <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address</label>
-                    <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="tboy@gmail.com" required />
+                    <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Email Address" required />
                 </div>
 
                 <div className="my-3">

@@ -23,7 +23,7 @@ const PlaceOrderPage = () => {
 
 
     return (
-        <>
+        <div className="mt-24">
             <Navbar />
             <div className='my-10'>
                 <p className=' max-w-5xl mx-auto text-[#031744] text-3xl sm:text-5xl font-semibold p-3'>Place Order</p>
@@ -99,7 +99,7 @@ const PlaceOrderPage = () => {
             {/* <Modal show={stateNew} closeModal={setStateNew}> */}
                 <PlaceOrder {...{ setStateNew }} />
             </Modal>
-        </>
+        </div>
     )
 }
 

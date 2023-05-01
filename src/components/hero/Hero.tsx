@@ -13,7 +13,7 @@ const Hero = () => {
     const navigate = useNavigate()
 
     return (
-        <div>
+        <div className="mt-20">
             <section>
                 <div className="d relative">
                     <svg className='absolute hidden 2xl:block left-[540px] top-[310px]' width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
