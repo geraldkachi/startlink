@@ -7,7 +7,14 @@ import { Modal } from 'antd'
 
 const PlaceOrderPage = () => {
     const [stateNew, setStateNew] = useState<boolean>(false)
-    const [count, setCount] = useState<number>(0)
+    const [count, setCount] = useState<number>(1)
+
+
+
+
+     const formatKoboAmountForDisplay = (amount: number): string => {
+        return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
+      };
 
     return (
         <>
@@ -28,10 +35,12 @@ const PlaceOrderPage = () => {
 
                             <div className="my-5">
                                 <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
-                                    <svg onClick={() => setCount(prev => prev - 1)} className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <button onClick={() => setCount(prev => prev - 1)} disabled={count === 0} >
+                                    <svg className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect y="0.569946" width="40" height="40" rx="5" fill="#E1E1E1" />
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
                                     </svg>
+                                    </button>
                                     <p className="mx-2 border text-center w-8">{count}</p>
 
                                     {/* <input className="mx-2 border text-center w-8" type="text" value={count} onChange={(e: ChangeEvent<HTMLInputElement & EventTarget>) => setCount(e.target.value)} /> */}
@@ -43,7 +52,7 @@ const PlaceOrderPage = () => {
 
                                 </div>
                             </div>
-                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">NGN 268,584.00</p>
+                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count)}</p>
                         </div>
                     </div>
 
