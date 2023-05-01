@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import Modal from '../modal/Modal'
+// import Modal from '../modal/Modal'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { useNavigate } from 'react-router-dom'
+import { Modal } from 'antd'
 const Navbar = () => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
@@ -45,7 +46,8 @@ const Navbar = () => {
 
 
             <div className="overflow-hidden">
-                <Modal show={stateNew} closeModal={setStateNew}>
+                <Modal open={stateNew} onCancel={() => setStateNew(false)} footer={null} maskClosable={false}>
+                    {/* <Modal show={stateNew} closeModal={setStateNew}> */}
                     <PlaceOrder {...{ setStateNew }} />
                 </Modal>
             </div>

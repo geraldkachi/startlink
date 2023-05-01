@@ -1,9 +1,10 @@
-import { Modal, Navbar, PlaceOrder } from '../../components'
+import {  Navbar, PlaceOrder } from '../../components'
 import Footer from '../../components/navbar/Footer'
 import PlaceIconTv from '../../assets/svg/PlaceIconTv'
 import ContactInfo from '../../components/contactinfo/ContactInfo'
 import { useState } from 'react'
 import Image from "../../assets/svg/conimg.png"
+import { Modal } from 'antd'
 
 const PlaceOrderPage = () => {
     const [stateNew, setStateNew] = useState<boolean>(false)
@@ -15,7 +16,7 @@ const PlaceOrderPage = () => {
                 <p className=' max-w-5xl mx-auto text-[#031744] text-3xl sm:text-5xl font-semibold p-3'>Place Order</p>
 
                 <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-                    <div>
+                    <div className='p-3'>
                         {/* <PlaceIconTv className='w-1/2' /> */}
                         <img src={Image} alt="star" />
                         <div className="my-10">
@@ -55,7 +56,8 @@ const PlaceOrderPage = () => {
             <Footer />
 
 
-            <Modal show={stateNew} closeModal={setStateNew}>
+            <Modal open={stateNew} onCancel={() => setStateNew(false)} footer={null} maskClosable={false}>
+            {/* <Modal show={stateNew} closeModal={setStateNew}> */}
                 <PlaceOrder {...{ setStateNew }} />
             </Modal>
         </>

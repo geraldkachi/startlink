@@ -52,7 +52,7 @@ const Modal = (props: Props) => {
                 transform: 'translate(-50%, -50%)'
               }}
             >
-              <div className="relative my-6 mx-auto overflow-y-hidden">
+              <div style={{overflow: 'hidden'}} className="relative my-6 mx-auto overflow-hidden">
                 <div className="overflow-y-hidden border-0 rounded-3xl p-5 sm:p-10 shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <svg className="icon solid text-grey-slate cursor-pointer float-right m-4 absolute top-0 right-0"
                     onClick={() => closeModal(false)}
@@ -100,30 +100,3 @@ const Modal = (props: Props) => {
 };
 
 export default Modal;
-// return (
-//   <>
-//     <div
-//       className={`fixed h-screen w-screen bg-black top-0 left-0 bg-opacity-40 z-40 ${
-//         control ? 'block' : 'hidden'
-//       }`}
-//       onClick={() => close(false)}
-//     />
-//     <ClickOutside
-//       onclickoutside={() => close(false)}
-//       className={`bg-white fixed z-50 rounded-xl p-${padding}`}
-//       style={{
-//         top: control ? '50%' : '-50%',
-//         opacity: control ? 1 : 0,
-//         width,
-//         left: '50%',
-//         transform: 'translate(-50%, -50%)'
-//       }}
-//     >
-//       {control && (
-//         <div className="h-fit f-grow" style={{ position: 'relative' }}>
-//           {children}
-//         </div>
-//       )}
-//     </ClickOutside>
-//   </>
-// );
