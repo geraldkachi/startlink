@@ -1,7 +1,7 @@
 import {  Navbar, PlaceOrder } from '../../components'
 import Footer from '../../components/navbar/Footer'
 import ContactInfo from '../../components/contactinfo/ContactInfo'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import Image from "../../assets/svg/conimg.png"
 import { Modal } from 'antd'
 
@@ -33,7 +33,7 @@ const PlaceOrderPage = () => {
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
                                     </svg>
 
-                                    <input className="mx-2 border text-center w-8" type="number" value={count} onChange={e => setCount(e.target.value)} />
+                                    <input className="mx-2 border text-center w-8" type="text" value={count} onChange={(e: ChangeEvent<HTMLInputElement & EventTarget>) => setCount(e.target.value)} />
 
                                     <svg onClick={() => setCount(prev => prev + 1)} className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect y="0.569946" width="40" height="40" rx="5" fill="#2568FF" />
