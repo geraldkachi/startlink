@@ -1,0 +1,81 @@
+import { Dispatch, SetStateAction } from "react"
+
+interface Props {
+    setStateNew?: Dispatch<SetStateAction<boolean>>
+  }
+const ContactInfo = ({setStateNew}:Props) => {
+    return (
+        <div className="p-3">
+            <p className="text-2xl font-semibold my-5">Contact Information</p>
+            <form className=''>
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="mb-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                        <input type="text" id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="First Name" required />
+                    </div>
+                    <div className="mb-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                        <input type="text" id="password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Last name" required />
+                    </div>
+                </div>
+
+                <div className="mb-2">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+                    <input type="text" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Phone Number" required />
+                </div>
+                <div className="mb-2">
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address</label>
+                    <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="tboy@gmail.com" required />
+                </div>
+
+                <div className="my-3">
+                    <p className="text-2xl font-semibold my-5">Shipping Information</p>
+
+                    <div className="mb-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shipping Address</label>
+                        <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="1, Lego Drive, Victoria Island, Lagos" required />
+                    </div>
+                    <div className="mb-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
+                        <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Victoria Island" required />
+                    </div>
+                    <div className="mb-2">
+                        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
+                        <input type="email" id="repeat-password" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required />
+                    </div>
+                </div>
+
+                <div className="my-5 bg-[#D1DDFA] p-5">
+
+                    <div className="flex items-center justify-between mt-3">
+                        <p className='font-semibold text-base'>SubTotal</p>
+                        <p className='text-base'>NGN 268,584.00</p>
+                    </div>
+
+                    <div className="flex items-center justify-between mt-3">
+                        <p className='font-semibold text-base'>Shipping</p>
+                        <p className='text-base'>NGN 8,584.00</p>
+                    </div>
+
+                    <div className="flex items-center justify-between mt-3">
+                        <p className='font-semibold text-base'>Total</p>
+                        <p className='text-base'>NGN 348,584.00</p>
+                    </div>
+                </div>
+
+
+                <div className="mb-2">
+                    <button type="button" onClick={() => {setStateNew && setStateNew(true)}} className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-medium text-sm px-5 py-4 text-center flex items-center justify-between">
+                        <span>Checkout</span>
+
+                        <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.78135 5.02901L5.20535 1.45301L6.14802 0.510345L11.3334 5.69568L6.14802 10.881L5.20535 9.93835L8.78135 6.36235H0.666687V5.02901H8.78135Z" fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    )
+}
+
+export default ContactInfo
