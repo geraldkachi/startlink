@@ -1,9 +1,19 @@
 import { Dispatch, SetStateAction } from "react"
+import useAuth from "../../hooks/useAuth"
 
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
   }
-const ContactInfo = ({setStateNew}:Props) => {
+const ContactInfo = ({ setStateNew }: Props) => {
+    const count = useAuth(state => state.count)
+    const costFee = useAuth(state => state.costFee)
+    const shippingFee = useAuth(state => state.shippingFee)
+    const totalFee = useAuth(state => state.totalFee)
+
+    const formatKoboAmountForDisplay = (amount: number): string => {
+        return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
+     };
+
     return (
         <div className="p-3">
             <p className="text-2xl font-semibold my-5">Contact Information</p>
@@ -49,17 +59,17 @@ const ContactInfo = ({setStateNew}:Props) => {
 
                     <div className="flex items-center justify-between mt-3">
                         <p className='font-semibold text-base'>SubTotal</p>
-                        <p className='text-base'>NGN 268,584.00</p>
+                        <p className='text-base'>{formatKoboAmountForDisplay(count * costFee)}</p>
                     </div>
 
                     <div className="flex items-center justify-between mt-3">
                         <p className='font-semibold text-base'>Shipping</p>
-                        <p className='text-base'>NGN 8,584.00</p>
+                        <p className='text-base'>{formatKoboAmountForDisplay(shippingFee)}</p>
                     </div>
 
                     <div className="flex items-center justify-between mt-3">
                         <p className='font-semibold text-base'>Total</p>
-                        <p className='text-base'>NGN 348,584.00</p>
+                        <p className='text-base'>{formatKoboAmountForDisplay(Number(((count * costFee) + shippingFee).toFixed(2)))}</p>
                     </div>
                 </div>
 
