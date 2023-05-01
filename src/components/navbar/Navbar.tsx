@@ -46,7 +46,31 @@ const Navbar = () => {
 
 
             <div className="overflow-hidden">
-                <Modal open={stateNew} onCancel={() => setStateNew(false)} footer={null} maskClosable={false}>
+                <Modal open={stateNew} onCancel={() => setStateNew(false)} footer={null}
+                    closeIcon={
+                        <>
+                            <svg className="icon solid text-grey-slate cursor-pointer float-right m-4 absolute top-0 right-0"
+
+                                width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_b_1_654)">
+                                    <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
+                                    <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </g>
+                                <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <defs>
+                                    <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="8" />
+                                        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_654" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_654" result="shape" />
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </>
+                    }
+                    maskClosable={false}
+                >
                     {/* <Modal show={stateNew} closeModal={setStateNew}> */}
                     <PlaceOrder {...{ setStateNew }} />
                 </Modal>
