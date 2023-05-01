@@ -1,6 +1,5 @@
 import {  Navbar, PlaceOrder } from '../../components'
 import Footer from '../../components/navbar/Footer'
-import PlaceIconTv from '../../assets/svg/PlaceIconTv'
 import ContactInfo from '../../components/contactinfo/ContactInfo'
 import { useState } from 'react'
 import Image from "../../assets/svg/conimg.png"
@@ -27,7 +26,7 @@ const PlaceOrderPage = () => {
                             </p>
 
                             <div className="my-5">
-                                <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg">
+                                <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
                                     <svg className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect y="0.569946" width="40" height="40" rx="5" fill="#E1E1E1" />
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
@@ -44,7 +43,7 @@ const PlaceOrderPage = () => {
 
                                 </div>
                             </div>
-                            <p className="mt-10 text-[#031744] font-semibold text-3xl">NGN 268,584.00</p>
+                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">NGN 268,584.00</p>
                         </div>
                     </div>
 
