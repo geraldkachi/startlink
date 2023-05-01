@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction } from "react"
 import PlaceIconTv from "../../assets/svg/PlaceIconTv"
 import ContactInfo from "../contactinfo/ContactInfo"
+import Image from "../../assets/svg/conimg.png"
+
 
 interface Props {
   setStateNew?: Dispatch<SetStateAction<boolean>>
@@ -12,7 +14,7 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
 
       <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-        <PlaceIconTv />
+        <img src={Image} alt="" />
 
         <div>
           <ContactInfo {...{setStateNew}} />
