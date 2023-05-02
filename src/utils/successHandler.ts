@@ -18,7 +18,6 @@ export const success = (data: IData) => {
 
     if(data?.meta && data?.meta?.token) {
         // set token here;
-        UseAuth.setState({ token: data?.meta?.token });
         Cookies.set('Authenticated', data?.meta?.token);
     }
 

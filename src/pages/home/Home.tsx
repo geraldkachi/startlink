@@ -2,7 +2,6 @@ import { format } from "date-fns";
 
 
 // import Modal from "../../components/modal/Modal";
-import Button from "../../components/button/Button";
 import { Hero, Navbar } from "../../components";
 
 
