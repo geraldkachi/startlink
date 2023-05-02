@@ -3,8 +3,22 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Plus Jakarta Sans", "Manrope", "Roboto", sans-serif;
+  /* font-family: "Plus Jakarta Sans", "Manrope", "Roboto", sans-serif; */
+  font-family: "Manrope", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
   -webkit-text-size-adjust: 100%;
+}
+.manrope {
+  font-family: "Manrope" !important;
+}
+.jakarta {
+  font-family: "Plus Jakarta Sans" !important;
+}
+.roboto {
+  font-family: "Roboto" !important;
 }
