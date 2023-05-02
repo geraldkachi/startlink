@@ -25,7 +25,7 @@ const OrderSuccessful = () => {
                         </svg>
                     </button>
                     <button type="button" onClick={() => {
-                    }} className="text-black text-base font-medium mt-3 w-full bg-[#ffff] hover:bg-[#ececef] rounded-lg focus:outline-none px-5 py-4 text-center">
+                    }} className="text-[#2568FF] text-base font-medium mt-3 w-full bg-[#ffff] border-[#2568FF] border hover:bg-[#ececef] rounded-lg focus:outline-none px-5 py-4 text-center">
                         <span>Place a new order</span>
                     </button>
                 </div>
