@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction, useState } from "react"
 import useAuth from "../../hooks/useAuth"
+import { Select } from "antd"
 
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
@@ -10,10 +11,17 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const costFee = useAuth(state => state.costFee)
     const shippingFee = useAuth(state => state.shippingFee)
     const totalFee = useAuth(state => state.totalFee)
+    const [state, setState] = useState()
 
     const formatKoboAmountForDisplay = (amount: number): string => {
         return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
     };
+
+    const rolesOption = [
+        { label: "Lagos", value: "lagos" },
+        { label: "Imo", value: "imo" },
+        { label: "Abia", value: "abia" },
+    ];
 
     return (
         <div className="p-3">
@@ -55,7 +63,16 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </div>
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
-                            <input type="text" id="state" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required />
+                            <Select
+                                placeholder="Select Status"
+                                style={{ width: "100%", padding: '2px' }}
+                                size="large"
+                                onChange={(e) => setState(e)}
+                                value={state}
+                                options={rolesOption}
+                                className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full placeholder-[#111113]::placeholder"
+                            />
+                            {/* <input type="text" id="state" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required /> */}
                         </div>
                     </div>
                 </div>

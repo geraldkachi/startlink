@@ -25,3 +25,21 @@
 .neue {
   font-family: 'Neue Haas Grotesk Display Pro' !important;
 }
+
+.ant-select-focused .ant-select-selector,
+.ant-select-selector:focus,
+.ant-select-selector:active,
+.ant-select-selector:hover,
+.ant-select-open:hover,
+.ant-select-open .ant-select-selector {
+  border-color: white !important;
+  box-shadow: none !important;
+}
+.ant-select-selector{
+  border-color: white !important;
+  /* margin: 30px !important;
+  padding: 5px !important; */
+}
+.dropDown {
+  background-color: antiquewhite;
+}

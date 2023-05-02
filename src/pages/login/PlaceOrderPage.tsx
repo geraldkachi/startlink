@@ -32,7 +32,7 @@ const PlaceOrderPage = () => {
                         {/* <PlaceIconTv className='w-1/2' /> */}
                         <img src={Image} alt="star" />
                         <div className="my-10">
-                            <div className="text-[#031744] text-4xl font-semibold">Starlink</div>
+                            <div className="text-[#031744] text-4xl font-semibold">Standard Kit</div>
 
                             <p className="mt-5 text-[#031744]">
                                 High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.
