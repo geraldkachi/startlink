@@ -8,7 +8,7 @@ const CompanyList = () => {
                     <path d="M10.8497 14.6155L3.16974 14.6155L10.8497 22.2955L10.8497 14.6155Z" fill="#141313" />
                 </svg>
 
-                <p className="text-[#141313] text-xl ml-2">NEXTFLOWS</p>
+                <p className="text-[#141313] text-xl ml-2 font-semibold">NEXTFLOWS</p>
             </div>
 
             <div className="flex items-center mb-5">
@@ -19,7 +19,7 @@ const CompanyList = () => {
                     <path d="M16.1909 8.45855L23.3367 12.5842L23.3367 9.02133L16.1909 4.89572L16.1909 8.45855Z" fill="#141313" />
                 </svg>
 
-                <p className="text-[#141313] text-xl ml-2">Globalchart</p>
+                <p className="text-[#141313] text-xl ml-2 font-semibold">Globalchart</p>
             </div>
 
             <div className="flex items-center mb-5">
@@ -31,7 +31,7 @@ const CompanyList = () => {
                     <path d="M17.1256 8.58131C17.1256 6.87714 18.5071 5.49564 20.2113 5.49564C21.9154 5.49564 23.2969 6.87714 23.2969 8.58131C23.2969 10.2855 21.9154 11.667 20.2113 11.667C18.5071 11.667 17.1256 10.2855 17.1256 8.58131Z" fill="#141313" />
                 </svg>
 
-                <p className="text-[#141313] text-xl ml-2">MarketSavy</p>
+                <p className="text-[#141313] text-xl ml-2 font-semibold">MarketSavy</p>
             </div>
 
             <div className="flex items-center mb-5">
@@ -47,7 +47,7 @@ const CompanyList = () => {
                     </defs>
                 </svg>
 
-                <p className="text-[#141313] text-xl ml-2">BestBank</p>
+                <p className="text-[#141313] text-xl ml-2 font-semibold">BestBank</p>
             </div>
 
             <div className="flex items-center mb-5">
@@ -58,7 +58,7 @@ const CompanyList = () => {
                     <path d="M12.4398 12.6955L22.0398 7.89551V12.6955L12.4398 17.4955V12.6955Z" stroke="#141313" stroke-width="1.2" stroke-linejoin="round" />
                 </svg>
 
-                <p className="text-[#141313] text-xl ml-2">EpicDev</p>
+                <p className="text-[#141313] text-xl ml-2 font-semibold">EpicDev</p>
             </div>
         </div>
     )

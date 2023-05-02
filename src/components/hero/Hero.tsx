@@ -26,7 +26,7 @@ const Hero = () => {
                     <LeftIocnHero className='absolute hidden xl:block right-10 top-44 z-20' />
                     {/* <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32"> */}
                     <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center  md:py- md:px-10 lg:px-32">
-                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl">Enterprise reseller of Starlink in Nigeria</h1>
+                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl">Enterprise reseller of <span className="text-[#2568FF]">Starlink Kit</span> in Nigeria</h1>
                         <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.</p>
                         <div className="flex flex-wrap justify-center">
                             <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
@@ -178,7 +178,7 @@ const Hero = () => {
                             </div>
 
                             <div className="flex space-x-2 sm:space-x-4">
-                                <svg className='w-24 h-16'  width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className='w-24 h-16' width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.98334 21.9844L26 9.27303L48.0167 21.9844V47.407L26 60.1183L3.98334 47.407V21.9844Z" fill="url(#paint0_linear_1_436)" stroke="#2568FF" />
                                     <g filter="url(#filter0_b_1_436)">
                                         <path d="M33 12.6957L53.7846 24.6957V48.6957L33 60.6957L12.2154 48.6957V24.6957L33 12.6957Z" fill="url(#paint1_linear_1_436)" />
@@ -214,6 +214,23 @@ const Hero = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className="mt-10 max-w-6xl mx-auto flex items-start justify-center">
+
+                            <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center justify-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-6 md:px-20 sm:py-4 py-2 text-center mr-3 md:mr-0">Place an order
+
+                                <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_1_322)">
+                                        <path d="M11.2814 7.68114L7.70535 4.10514L8.64802 3.16248L13.8334 8.34781L8.64802 13.5331L7.70535 12.5905L11.2814 9.01448H3.16669V7.68114H11.2814Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_1_322">
+                                            <rect width="16" height="16" fill="white" transform="translate(0.5 0.347778)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -227,10 +244,10 @@ const Hero = () => {
                                 <input type="text" id="full name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Name" required />
                             </div>
                             <div className="mb-2">
-                                <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Mail" required />
+                                <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Email Address" required />
                             </div>
                             <div className="mb-2">
-                                <input type="tel" id="phone" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Phone" required />
+                                <input type="tel" id="phone" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Phone Number" required />
                             </div>
 
                             <div className="mb-2">

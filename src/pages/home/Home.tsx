@@ -1,6 +1,3 @@
-import { format } from "date-fns";
-
-
 // import Modal from "../../components/modal/Modal";
 import { Hero, Navbar } from "../../components";
 
