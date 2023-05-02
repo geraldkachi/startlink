@@ -18,7 +18,6 @@ export const success = (data: IData) => {
 
     if(data?.meta && data?.meta?.token) {
         // set token here;
-        Cookies.set('Authenticated', data?.meta?.token);
     }
 
     return data;

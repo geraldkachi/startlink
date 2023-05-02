@@ -45,10 +45,12 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
               <div className="my-5">
                 <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
-                  <svg onClick={decreaseCount} className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <button onClick={decreaseCount} disabled={count === 1}>
+                  <svg className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect y="0.569946" width="40" height="40" rx="5" fill="#E1E1E1" />
                     <path fill-rule="evenodd" clipRule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
                   </svg>
+                </button>
                   <p className="mx-2 border text-center w-8">{count}</p>
 
                   {/* <input className="mx-2 border text-center w-8" type="text" value={count} onChange={(e: ChangeEvent<HTMLInputElement & EventTarget>) => setCount(e.target.value)} /> */}
