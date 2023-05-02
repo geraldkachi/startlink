@@ -27,7 +27,7 @@ const Hero = () => {
                     <LeftIocnHero className='absolute hidden xl:block right-10 top-44 z-20' />
                     {/* <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32"> */}
                     <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center  md:py- md:px-10 lg:px-32">
-                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl jakarta">Enterprise reseller of <span className="text-[#2568FF] whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
+                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="text-[#2568FF] whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
                         <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.</p>
                         <div className="flex flex-wrap justify-center">
                             <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
@@ -99,8 +99,8 @@ const Hero = () => {
 
             <section>
                 <div className='bg-[#D1DDFA] py-10 sm:py-20'>
-                    <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl pb-10 text-center mx-auto">How to get your device</h1>
-                    <div className="max-w-6xl mx-auto">
+                    <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl pb-10 text-center mx-auto neue">How to get your device</h1>
+                    <div className="max-w-7xl mx-auto">
 
                         <div className="grid md:grid-cols-3 gap-5 p-3">
                             <div className="flex space-x-2 sm:space-x-4">
@@ -135,9 +135,9 @@ const Hero = () => {
 
 
                                 {/* <Grid1Icon className="mx-3" /> */}
-                                <div className="space-y-2">
-                                    <p className="text-base font-normal leading-snug">Place order</p>
-                                    <p className="leading-snug">Fill the order creation form on our website.!</p>
+                                <div className="space-y-2 neue">
+                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Place order</p>
+                                    <p className="leading-snug font-normal text-base">Fill the order creation form on our website.!</p>
                                 </div>
                             </div>
 
@@ -172,9 +172,9 @@ const Hero = () => {
                                 </svg>
 
                                 {/* <Grid2Icon className="mx-3" /> */}
-                                <div className="space-y-2">
-                                    <p className="text-base font-normal leading-snug">Confirm order</p>
-                                    <p className="leading-snug">A contact person will reach out to confirm your order.!</p>
+                                <div className="space-y-2 neue">
+                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Confirm order</p>
+                                    <p className="leading-snug font-normal text-base">A contact person will reach out to confirm your order.!</p>
                                 </div>
                             </div>
 
@@ -209,9 +209,9 @@ const Hero = () => {
                                 </svg>
 
                                 {/* <Grid3Icon className="mx-3" /> */}
-                                <div className="space-y-2">
-                                    <p className="text-base font-normal leading-snug">Receive Starlink device</p>
-                                    <p className="leading-snug">After the order is confirmed, receive your device in 2-3 working days.!</p>
+                                <div className="space-y-2 neue">
+                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Receive Starlink device</p>
+                                    <p className="leading-snug font-normal text-base">After the order is confirmed, receive your device in 2-3 working days.!</p>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +238,7 @@ const Hero = () => {
 
             <section>
                 <div className='bg-[#F9FBFD] py-10'>
-                    <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium">Contact Us</h1>
+                    <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
                     <div className="max-w-md mx-auto p-5 bg-[#F2F3F8]">
                         <form>
                             <div className="mb-2">
