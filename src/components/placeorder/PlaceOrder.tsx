@@ -14,7 +14,6 @@ const PlaceOrder = ({ setStateNew }: Props) => {
  const count = useAuth(state => state.count)
  const costFee = useAuth(state => state.costFee)
 
- console.log(count )
 
 
   const formatKoboAmountForDisplay = (amount: number): string => {

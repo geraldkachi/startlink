@@ -9,7 +9,6 @@ const Navbar = () => {
 
     return (
         <div className='fixed top-0 w-full bg-[#ffffff] z-50'>
-            {/* <nav className="bg-white  fixed w-full z-20 top-0 left-0 border-b border-gray-200 shadow-xl"> */}
             <div className="  max-w-[1360px] flex flex-wrap items-center justify-between mx-auto p-4 rounded-lg shadow-sm sm:shadow-xl">
                 <Link to="/" className="flex items-center">
                     <svg width="41" height="49" viewBox="0 0 41 49" fill="none" xmlns="http://www.w3.org/2000/svg">

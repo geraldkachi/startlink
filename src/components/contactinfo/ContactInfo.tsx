@@ -3,8 +3,9 @@ import useAuth from "../../hooks/useAuth"
 
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
+    setStateSuccess?: Dispatch<SetStateAction<boolean>>
   }
-const ContactInfo = ({ setStateNew }: Props) => {
+const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
     const shippingFee = useAuth(state => state.shippingFee)
@@ -75,7 +76,10 @@ const ContactInfo = ({ setStateNew }: Props) => {
 
 
                 <div className="mb-2">
-                    <button type="button" onClick={() => {setStateNew && setStateNew(true)}} className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-medium text-sm px-5 py-4 text-center flex items-center justify-between">
+                    <button type="button" onClick={() => {
+                        // setStateNew && setStateNew(true)
+                        setStateSuccess && setStateSuccess(true)
+                    }} className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-medium text-sm px-5 py-4 text-center flex items-center justify-between">
                         <span>Checkout</span>
 
                         <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
