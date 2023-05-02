@@ -1,4 +1,3 @@
-import React from 'react'
 import OrderSuccessIcon from '../../assets/svg/OrderSuccessIcon'
 
 const OrderSuccessful = () => {
