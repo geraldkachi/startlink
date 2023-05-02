@@ -64,7 +64,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
                             <Select
-                                placeholder="Select Status"
+                                placeholder="Lagos"
                                 style={{ width: "100%", padding: '2px' }}
                                 size="large"
                                 onChange={(e) => setState(e)}
