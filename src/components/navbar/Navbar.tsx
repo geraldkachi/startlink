@@ -2,7 +2,8 @@ import { Modal } from 'antd'
 import { useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { Link, useNavigate } from 'react-router-dom'
-import Navicon from "../../assets/svg/navicon.png"
+// import Navicon from "../../assets/svg/navicon.png"
+import Navicon from "../../assets/svg/navTwo.png"
 const Navbar = () => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
