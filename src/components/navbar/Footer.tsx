@@ -22,8 +22,8 @@ const Footer = () => {
                     </div>
 
 
-                    <p className='text-base text-[#FFFFFF] opacity-50 hidden  sm:block'>A Subsidiary of PRUNEDGE</p>{' '}
-                    <p className='text-xs  sm:text-base text-[#FFFFFF] opacity-50 whitespace-nowrap'>© Umoyanet 2023 all rights reserved</p>
+                    <p className='text-base text-[#FFFFFF] opacity-50 my-3 hidden  sm:block'>A Subsidiary of PRUNEDGE</p>{' '}
+                    <p className='text-xs  sm:text-base text-[#FFFFFF] opacity-50 my-3 whitespace-nowrap'>© Umoyanet 2023 all rights reserved</p>
                 </div>
 
             </footer>
