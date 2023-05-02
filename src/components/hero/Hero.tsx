@@ -21,7 +21,7 @@ const Hero = () => {
                         <path d="M33.6207 3.28648C33.7941 4.16587 34.3118 4.87689 34.792 5.61291C36.3686 8.02987 38.8391 10.1289 41.7085 10.8112C38.5251 11.0818 34.4831 12.506 32.992 15.5139" stroke="#141313" stroke-width="2" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     {/* <GlowHeroIcon className=' fixed hidden xl:block right-0 top-0 -z-50' /> */}
-                    <img src={GlowImage} alt="glow image" className='absolute hidden xl:block right-0 top-0 -z-50' />
+                    <img src={GlowImage} alt="glow image" className='absolute hidden xl:block right-0 -top-32 -z-50' />
 
                     <RightIconHero className='absolute hidden xl:block left-16 top-52 z-20' />
                     <LeftIocnHero className='absolute hidden xl:block right-10 top-44 z-20' />
