@@ -136,7 +136,7 @@ const Hero = () => {
 
                                 {/* <Grid1Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
-                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Place order</p>
+                                    <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Place order</p>
                                     <p className="leading-snug font-normal text-base">Fill the order creation form on our website.!</p>
                                 </div>
                             </div>
@@ -173,13 +173,13 @@ const Hero = () => {
 
                                 {/* <Grid2Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
-                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Confirm order</p>
+                                    <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Confirm order</p>
                                     <p className="leading-snug font-normal text-base">A contact person will reach out to confirm your order.!</p>
                                 </div>
                             </div>
 
                             <div className="flex space-x-2 sm:space-x-4">
-                                <svg className='w-24 h-16' width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg className='w-24 h-16 flex' width="57" height="69" viewBox="0 0 57 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.98334 21.9844L26 9.27303L48.0167 21.9844V47.407L26 60.1183L3.98334 47.407V21.9844Z" fill="url(#paint0_linear_1_436)" stroke="#2568FF" />
                                     <g filter="url(#filter0_b_1_436)">
                                         <path d="M33 12.6957L53.7846 24.6957V48.6957L33 60.6957L12.2154 48.6957V24.6957L33 12.6957Z" fill="url(#paint1_linear_1_436)" />
@@ -210,7 +210,7 @@ const Hero = () => {
 
                                 {/* <Grid3Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
-                                    <p className="text-[32px] whitespace-nowrap font-semibold leading-snug">Receive Starlink device</p>
+                                    <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Receive Starlink device</p>
                                     <p className="leading-snug font-normal text-base">After the order is confirmed, receive your device in 2-3 working days.!</p>
                                 </div>
                             </div>
