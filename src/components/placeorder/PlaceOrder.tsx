@@ -40,7 +40,7 @@ const PlaceOrder = ({ setStateNew }: Props) => {
               <div className="text-[#031744] text-4xl font-semibold">Starlink</div>
 
               <p className="mt-5 text-[#031744]">
-                High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.
+                High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN{count * costFee}.
               </p>
 
               <div className="my-5">
