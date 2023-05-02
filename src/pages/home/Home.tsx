@@ -11,6 +11,7 @@ const Home = () => {
     <div>
 
       <Navbar />
+
       <Hero />
 
       {/* <Modal open={stateMetric} onCancel={() => setStateMetric(false)} footer={null} maskClosable={false} closable={true} afterClose={() => setStateMetric(false)}>
