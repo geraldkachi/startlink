@@ -9,8 +9,8 @@ const Navbar = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='fixed top-0 w-full bg-[#ffffff] z-50'>
-            <div className="  max-w-[1360px] flex flex-wrap items-center justify-between mx-auto p-4 rounded-lg shadow-sm sm:shadow-sm">
+        <div className='sm:fixed top-0 sm:top-5 w-full z-50'>
+            <div className="  max-w-[1360px] bg-[#ffffff] flex flex-wrap items-center justify-between mx-auto p-4 rounded-lg shadow-sm sm:shadow-sm">
                 <Link to="/" className="flex items-center">
                    <img src={Navicon} alt="nav" />
                 </Link>
