@@ -6,7 +6,8 @@ import RightIconHero from '../../assets/svg/RightIconHero'
 import Footer from '../navbar/Footer'
 import CompanyList from './CompanyList'
 import { useNavigate } from 'react-router-dom'
-// import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
+import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
+import GlowImage from '../../assets/svg/glow.png'
 
 const Hero = () => {
     const navigate = useNavigate()
@@ -19,7 +20,8 @@ const Hero = () => {
                         <path d="M38.9376 10.5831C30.9018 9.53512 22.6632 10.519 16.159 15.9542C10.2882 20.8602 8.64858 28.0057 16.34 32.061C19.9809 33.9806 25.581 33.823 28.2968 30.373C31.3225 26.5293 25.7727 23.3157 22.5285 23.1977C14.9511 22.9218 7.32738 28.5335 6.36158 36.7852C5.21785 46.5571 15.3318 46.1651 15.3071 46.1025" stroke="#141313" stroke-width="2" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M33.6207 3.28648C33.7941 4.16587 34.3118 4.87689 34.792 5.61291C36.3686 8.02987 38.8391 10.1289 41.7085 10.8112C38.5251 11.0818 34.4831 12.506 32.992 15.5139" stroke="#141313" stroke-width="2" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    {/* <GlowHeroIcon className=' fixed hidden xl:block right-0 top-0 -z-50'  /> */}
+                    {/* <GlowHeroIcon className=' fixed hidden xl:block right-0 top-0 -z-50' /> */}
+                    <img src={GlowImage} alt="glow image" className=' fixed hidden xl:block right-0 top-0 -z-50' />
 
                     <RightIconHero className='absolute hidden xl:block left-16 top-52 z-20' />
                     <LeftIocnHero className='absolute hidden xl:block right-10 top-44 z-20' />
