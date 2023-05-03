@@ -142,7 +142,7 @@ const Hero = () => {
                                 {/* <Grid1Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
                                     <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Place order</p>
-                                    <p className="leading-snug font-normal text-base">Fill the order creation form on our website.!</p>
+                                    <p className="leading-snug font-normal text-base">Fill the order creation form on our website.</p>
                                 </div>
                             </div>
 
@@ -179,7 +179,7 @@ const Hero = () => {
                                 {/* <Grid2Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
                                     <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Confirm order</p>
-                                    <p className="leading-snug font-normal text-base">A contact person will reach out to confirm your order.!</p>
+                                    <p className="leading-snug font-normal text-base">A contact person will reach out to confirm your order.</p>
                                 </div>
                             </div>
 
@@ -216,7 +216,7 @@ const Hero = () => {
                                 {/* <Grid3Icon className="mx-3" /> */}
                                 <div className="space-y-2 neue">
                                     <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Receive Starlink device</p>
-                                    <p className="leading-snug font-normal text-base">After the order is confirmed, receive your device in 2-3 working days.!</p>
+                                    <p className="leading-snug font-normal text-base">After the order is confirmed, receive your device in 2-3 working days.</p>
                                 </div>
                             </div>
                         </div>
