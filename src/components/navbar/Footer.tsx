@@ -1,4 +1,4 @@
-import FooterIcon from "../../assets/svg/footerIcon.png"
+import FooterIcon from "../../assets/svg/newnewfootericon.svg"
 const Footer = () => {
     return (
         <div className='bg-[#001648]'>

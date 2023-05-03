@@ -3,7 +3,8 @@ import { useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { Link, useNavigate } from 'react-router-dom'
 // import Navicon from "../../assets/svg/navicon.png"
-import Navicon from "../../assets/svg/navTwo.png"
+// import Navicon from "../../assets/svg/navTwo.png"
+import Navicon from "../../assets/svg/newnewnavicon.svg"
 const Navbar = () => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
