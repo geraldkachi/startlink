@@ -61,7 +61,6 @@ const PlaceOrderPage = () => {
                         </div>
                     </div>
 
-
                     <ContactInfo {...{ setStateSuccess }} />
                 </div>
 

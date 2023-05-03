@@ -1,5 +1,6 @@
 import OrderSuccessIcon from '../../assets/svg/OrderSuccessIcon'
-import SuccessIcon from '../../assets/svg/successIcon.png'
+// import SuccessIcon from '../../assets/svg/successIcon.png'
+import NewSuccessIcon from '../../assets/svg/newSucc.svg'
 
 const OrderSuccessful = () => {
     return (
@@ -10,7 +11,7 @@ const OrderSuccessful = () => {
             <div className="max-w-lg mx-auto my-auto">
                 <div className="flex items-center justify-center">
                     {/* <OrderSuccessIcon /> */}
-                    <img src={SuccessIcon} alt="SuccessIcon" />
+                    <img src={NewSuccessIcon} alt="SuccessIcon" />
                 </div>
 
                 <div className="mx-auto text-center">
