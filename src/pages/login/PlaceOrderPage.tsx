@@ -24,21 +24,17 @@ const PlaceOrderPage = () => {
         <>
             <Navbar />
         <div className="mt-24">
-            <div className='my-10'>
+            <div className='mb-10'>
                 <p className=' max-w-5xl mx-auto text-[#031744] text-3xl sm:text-5xl font-semibold p-3'>Place Order</p>
 
-                <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-x-4 max-w-5xl mx-auto">
                     <div className='p-3'>
                         {/* <PlaceIconTv className='w-1/2' /> */}
                         <img src={Image} alt="star" />
-                        <div className="my-10">
-                            <div className="text-[#031744] text-4xl font-semibold">Standard Kit</div>
+                        <div className="my-">
+                            <div className="text-[#031744] text-4xl font-semibold">Starlink Standard Kit</div>
 
-                            <p className="mt-5 text-[#031744]">
-                                High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.
-                            </p>
-
-                            <div className="my-5">
+                            <div className="my-2">
                                 <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
                                     <button onClick={decreaseCount} disabled={count === 1} >
                                     <svg className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +53,11 @@ const PlaceOrderPage = () => {
 
                                 </div>
                             </div>
-                            <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count * costFee)}</p>
+                                <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count * costFee)}</p>
+
+                                <p className="mt-5 text-[#031744] text-lg font-normal neue">
+                                High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.
+                            </p>
                         </div>
                     </div>
 
