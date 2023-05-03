@@ -23,7 +23,7 @@ const PlaceOrderPage = () => {
     return (
         <>
             <Navbar />
-        <div className="mt-24">
+        <div className="mt-10 sm:mt-24">
             <div className='mb-10'>
                 <p className=' max-w-5xl mx-auto text-[#031744] text-3xl sm:text-5xl font-semibold p-3'>Place Order</p>
 

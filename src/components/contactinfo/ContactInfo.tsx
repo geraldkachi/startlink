@@ -30,22 +30,22 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">First Name</label>
-                        <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="First Name" required />
+                        <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Last Name</label>
-                        <input type="text" name='lastName' id="lastName" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Last name" required />
+                        <input type="text" name='lastName' id="lastName" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Phone Number</label>
-                        <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Phone Number" required />
+                        <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Email Address</label>
-                        <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Email Address" required />
+                        <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                 </div>
 
@@ -54,17 +54,17 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Shipping Address</label>
-                        <input type="email" id="address" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="1, Lego Drive, Victoria Island, Lagos" required />
+                        <input type="email" id="address" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">City</label>
-                            <input type="text" id="city" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Victoria Island" required />
+                            <input type="text" id="city" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                         </div>
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">State</label>
                             <Select
-                                placeholder="Lagos"
+                                placeholder="Select State"
                                 style={{ width: "100%", padding: '2px' }}
                                 size="large"
                                 onChange={(e) => setState(e)}
