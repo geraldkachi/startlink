@@ -1,13 +1,20 @@
 import { Modal } from 'antd'
-import { useState } from 'react'
+import { useState, useRef, RefObject } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { Link, useNavigate } from 'react-router-dom'
 // import Navicon from "../../assets/svg/navicon.png"
 // import Navicon from "../../assets/svg/navTwo.png"
+
 import Navicon from "../../assets/svg/newnewnavicon.svg"
-const Navbar = () => {
+interface Props {
+    scrollToSection: (n?: RefObject<HTMLDivElement>) => void | undefined,
+    ref?: RefObject<HTMLDivElement> | undefined | null
+    onUpdateActiveLink?: (n: string) => void
+}
+const Navbar = ({scrollToSection, ref, onUpdateActiveLink}: Props) => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
+
 
     return (
         <div className='sm:fixed top-0 sm:top-5 w-full z-50'>
@@ -15,8 +22,16 @@ const Navbar = () => {
                 <Link to="/" className="flex items-center">
                    <img src={Navicon} alt="nav" />
                 </Link>
+
                 <div className="hidden sm:flex md:order-2">
-                    <button type="button" onClick={() => setStateNew(true)} className="text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none">Contact Support </button>{' '}
+                    <Link to="#contact">
+
+                    <button type="button" onClick={() => {
+                        scrollToSection &&  scrollToSection(ref)
+                        onUpdateActiveLink && onUpdateActiveLink('contact')
+                        }} className="text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none">Contact Support </button>
+                    </Link>
+                        {' '}
                     <button type="button" onClick={() => navigate('/placeorder')} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 
                         <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">

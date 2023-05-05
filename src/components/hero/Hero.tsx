@@ -9,11 +9,15 @@ import { useNavigate } from 'react-router-dom'
 // import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
 import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
-import { useState } from 'react'
+import { RefObject, useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 
+interface Props {
+    scrollToSection: (n: RefObject<HTMLDivElement>) => void | undefined,
+    ref: RefObject<HTMLDivElement> | undefined | null,
+}
 
-const Hero = () => {
+const Hero = ({ scrollToSection, ref }: Props) => {
     const navigate = useNavigate()
     const [stateNew, setStateNew] = useState<boolean>(false)
 
@@ -49,7 +53,10 @@ const Hero = () => {
                                 </svg>
 
                             </button>
-                            <button onClick={() => setStateNew(true)} type="button" className="flex items-center text-[#141313] border-[#141313] border m-2 bg-[#ffffff] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Contact Support</button>
+                            <button onClick={() => {
+                                scrollToSection(ref)
+                                // setStateNew(true)
+                            }} type="button" className="flex items-center text-[#141313] border-[#141313] border m-2 bg-[#ffffff] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Contact Support</button>
                         </div>
 
                         <div className="flex flex-col items-center justify-center my-3 sm:mt-36">
@@ -241,7 +248,7 @@ const Hero = () => {
                 </div>
             </section>
 
-            <section>
+            <div ref={ref} id="contact">
                 <div className='bg-[#F9FBFD] py-10'>
                     <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
                     <div className="max-w-md mx-auto p-5 bg-[#F2F3F8]">
@@ -265,41 +272,41 @@ const Hero = () => {
                         </form>
                     </div>
                 </div>
-            </section>
+            </div>
 
 
             <Footer />
 
 
             <Modal open={stateNew} onCancel={() => setStateNew(false)} footer={null}
-        closeIcon={
-          <>
-            <svg className="icon solid text-grey-slate cursor-pointer float-right m-4 absolute top-0 right-0"
+                closeIcon={
+                    <>
+                        <svg className="icon solid text-grey-slate cursor-pointer float-right m-4 absolute top-0 right-0"
 
-              width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g filter="url(#filter0_b_1_654)">
-                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
-                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </g>
-              <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <defs>
-                <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                  <feGaussianBlur in="BackgroundImageFix" stdDeviation="8" />
-                  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_654" />
-                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_654" result="shape" />
-                </filter>
-              </defs>
-            </svg>
-          </>
-        }
-        maskClosable={false}
-        width={1000}
-      >
-        {/* <Modal show={stateNew} closeModal={setStateNew}> */}
-        <PlaceOrder {...{ setStateNew }} />
-      </Modal>
+                            width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_b_1_654)">
+                                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
+                                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </g>
+                            <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <defs>
+                                <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="8" />
+                                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_654" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_654" result="shape" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    </>
+                }
+                maskClosable={false}
+                width={1000}
+            >
+                {/* <Modal show={stateNew} closeModal={setStateNew}> */}
+                <PlaceOrder {...{ setStateNew }} />
+            </Modal>
         </div>
     )
 }
