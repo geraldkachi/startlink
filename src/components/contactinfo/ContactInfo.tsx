@@ -1,11 +1,51 @@
 import { Dispatch, SetStateAction, useState } from "react"
 import useAuth from "../../hooks/useAuth"
-import { Select } from "antd"
-
+// import { Select } from "antd"
+import Select from 'react-select'
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
     setStateSuccess?: Dispatch<SetStateAction<boolean>>
 }
+const rolesOption = [
+    { label: "Abia", value: "ABIA" },
+    { label: "Abuja", value: "ABUJA" },
+    { label: "Adamawa", value: "ADAMAWA" },
+    { label: "Akwa Ibom", value: "AKWA IBOM" },
+    { label: "Anambra", value: "ANAMBRA" },
+    { label: "Bauchi", value: "BAUCHI" },
+    { label: "Bayelsa", value: "BAYELSA" },
+    { label: "Benue", value: "BENUE" },
+    { label: "Borno", value: "BORNO" },
+    { label: "Cross River", value: "CROSS RIVER" },
+    { label: "Delta", value: "DELTA" },
+    { label: "Ebonyi", value: "EBONYI" },
+    { label: "Edo", value: "EDO" },
+    { label: "Ekiti", value: "EKITI" },
+    { label: "Enugu", value: "ENUGU" },
+    { label: "Gombe", value: "GOMBE" },
+    { label: "Imo", value: "IMO" },
+    { label: "Jigawa", value: "JIGAWA" },
+    { label: "Kaduna", value: "KADUNA" },
+    { label: "Kano", value: "KANO" },
+    { label: "Katsina", value: "KATSINA" },
+    { label: "Kebbi", value: "KEBBI" },
+    { label: "Kogi", value: "KOGI" },
+    { label: "Kwara", value: "KWARA" },
+    { label: "Lagos", value: "LAGOS" },
+    { label: "Nasarawa", value: "NASARAWA" },
+    { label: "Niger", value: "NIGER" },
+    { label: "Ogun", value: "OGUN" },
+    { label: "Ondo", value: "ONDO" },
+    { label: "Osun", value: "OSUN" },
+    { label: "Oyo", value: "OYO" },
+    { label: "Plateau", value: "PLATEAU" },
+    { label: "Rivers", value: "RIVERS" },
+    { label: "Sokoto", value: "SOKOTO" },
+    { label: "Taraba", value: "TARABA" },
+    { label: "Yobe", value: "YOBE" },
+    { label: "Zamfara", value: "ZAMFARA" },
+];
+
 const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
@@ -17,45 +57,25 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
     };
 
-    const rolesOption = [
-        { label: "Abia", value: "ABIA" },
-        { label: "Abuja", value: "ABUJA" },
-        { label: "Adamawa", value: "ADAMAWA" },
-        { label: "Akwa Ibom", value: "AKWA IBOM" },
-        { label: "Anambra", value: "ANAMBRA" },
-        { label: "Bauchi", value: "BAUCHI" },
-        { label: "Bayelsa", value: "BAYELSA" },
-        { label: "Benue", value: "BENUE" },
-        { label: "Borno", value: "BORNO" },
-        { label: "Cross River", value: "CROSS RIVER" },
-        { label: "Delta", value: "DELTA" },
-        { label: "Ebonyi", value: "EBONYI" },
-        { label: "Edo", value: "EDO" },
-        { label: "Ekiti", value: "EKITI" },
-        { label: "Enugu", value: "ENUGU" },
-        { label: "Gombe", value: "GOMBE" },
-        { label: "Imo", value: "IMO" },
-        { label: "Jigawa", value: "JIGAWA" },
-        { label: "Kaduna", value: "KADUNA" },
-        { label: "Kano", value: "KANO" },
-        { label: "Katsina", value: "KATSINA" },
-        { label: "Kebbi", value: "KEBBI" },
-        { label: "Kogi", value: "KOGI" },
-        { label: "Kwara", value: "KWARA" },
-        { label: "Lagos", value: "LAGOS" },
-        { label: "Nasarawa", value: "NASARAWA" },
-        { label: "Niger", value: "NIGER" },
-        { label: "Ogun", value: "OGUN" },
-        { label: "Ondo", value: "ONDO" },
-        { label: "Osun", value: "OSUN" },
-        { label: "Oyo", value: "OYO" },
-        { label: "Plateau", value: "PLATEAU" },
-        { label: "Rivers", value: "RIVERS" },
-        { label: "Sokoto", value: "SOKOTO" },
-        { label: "Taraba", value: "TARABA" },
-        { label: "Yobe", value: "YOBE" },
-        { label: "Zamfara", value: "ZAMFARA" },
-    ];
+    const customStyles = {
+        option: (defaultStyles, state) => ({
+          ...defaultStyles,
+          color: state.isSelected ? "#212529" : "#fff",
+          ...defaultStyles,
+          backgroundColor: state.isSelected ? "#abb1b8" : "#ffffff",
+        }),
+
+        control: (defaultStyles) => ({
+          ...defaultStyles,
+          backgroundColor: "#ffffff",
+          padding: "5px",
+          border: "1px solid #D9DDE3",
+            boxShadow: "none",
+          borderRadius: '8px'
+        }),
+        singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
+      };
+
 
     return (
         <div className="p-3">
@@ -97,7 +117,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </div>
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">State</label>
-                            <Select
+                            {/* <Select
                                 placeholder="Select State"
                                 style={{ width: "100%", padding: '2px' }}
                                 size="large"
@@ -105,7 +125,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                                 value={state}
                                 options={rolesOption}
                                 className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full placeholder-[#111113]::placeholder"
-                            />
+                            /> */}
+                             <Select options={rolesOption} styles={customStyles} />
                             {/* <input type="text" id="state" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required /> */}
                         </div>
                     </div>
