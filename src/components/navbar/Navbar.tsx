@@ -28,9 +28,8 @@ const Navbar = ({scrollToSection}: Props) => {
                     {/* <Link to="#contact"> */}
 
                     <button type="button" onClick={() => {
-                        // window.location === '/placeorder'
                         scrollToSection &&  scrollToSection()
-                        }} className="text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none">Contact Support </button>
+                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
                     {/* </Link> */}
                         {' '}
                     <button type="button" onClick={() => navigate('/placeorder')} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
@@ -65,10 +64,10 @@ const Navbar = ({scrollToSection}: Props) => {
                                 width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_b_1_654)">
                                     <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
-                                    <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 </g>
-                                <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M25 15L15 25" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                <path d="M15 15L25 25" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                 <defs>
                                     <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                                         <feFlood floodOpacity="0" result="BackgroundImageFix" />
