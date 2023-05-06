@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState } from "react"
 import useAuth from "../../hooks/useAuth"
-// import { Select } from "antd"
-import Select from 'react-select'
+import { Select } from "antd"
+// import Select from 'react-select'
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
     setStateSuccess?: Dispatch<SetStateAction<boolean>>
@@ -57,24 +57,26 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
     };
 
-    const customStyles = {
-        option: (defaultStyles, state) => ({
-          ...defaultStyles,
-          color: state.isSelected ? "#212529" : "#fff",
-          ...defaultStyles,
-          backgroundColor: state.isSelected ? "#abb1b8" : "#ffffff",
-        }),
+    // const customStyles = {
+    //     option: (defaultStyles, state) => ({
+    //       ...defaultStyles,
+    //       color: state.isSelected ? "#212529" : "#fff",
+    //       ...defaultStyles,
+    //         backgroundColor: state.isSelected ? "#abb1b8" : "#ffffff",
 
-        control: (defaultStyles) => ({
-          ...defaultStyles,
-          backgroundColor: "#ffffff",
-          padding: "5px",
-          border: "1px solid #D9DDE3",
-            boxShadow: "none",
-          borderRadius: '8px'
-        }),
-        singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
-      };
+    //     }),
+
+    //     control: (defaultStyles) => ({
+    //       ...defaultStyles,
+    //       backgroundColor: "#ffffff",
+    //         padding: "3px",
+    //       marginTop: "10px",
+    //       border: "1px solid #D9DDE3",
+    //         boxShadow: "none",
+    //       borderRadius: '8px'
+    //     }),
+    //     singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
+    //   };
 
 
     return (
@@ -117,7 +119,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </div>
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">State</label>
-                            {/* <Select
+                            <Select
                                 placeholder="Select State"
                                 style={{ width: "100%", padding: '2px' }}
                                 size="large"
@@ -125,8 +127,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                                 value={state}
                                 options={rolesOption}
                                 className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full placeholder-[#111113]::placeholder"
-                            /> */}
-                             <Select options={rolesOption} styles={customStyles} />
+                            />
+                             {/* <Select options={rolesOption} styles={customStyles} /> */}
                             {/* <input type="text" id="state" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required /> */}
                         </div>
                     </div>
