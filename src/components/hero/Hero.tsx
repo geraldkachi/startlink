@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 // import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
 import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
-import { RefObject, useState } from 'react'
+import { Ref, RefObject, forwardRef, useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
     ref: RefObject<HTMLDivElement> | null,
 }
 
-const Hero = ({ scrollToSection, ref }: Props) => {
+const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | undefined | any>) => {
     const navigate = useNavigate()
     const [stateNew, setStateNew] = useState<boolean>(false)
 
@@ -309,6 +309,6 @@ const Hero = ({ scrollToSection, ref }: Props) => {
             </Modal>
         </div>
     )
-}
+})
 
 export default Hero

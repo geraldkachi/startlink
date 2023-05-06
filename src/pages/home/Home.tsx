@@ -3,16 +3,18 @@ import { Hero, Navbar } from "../../components";
 
 const Home = () => {
   const ref = useRef<HTMLDivElement>(null);
-  // const scrollToSection = () => {
-  //     ref.current?.scrollIntoView({behavior: 'smooth'});
-  // };
-
-  const scrollToSection = (elementRef?: any) => {
-    window.scrollTo({
-      top: elementRef.current?.scrollIntoView({behavior: 'smooth'}),
-      behavior: 'smooth'
-    });
+  const scrollToSection = () => {
+      ref.current?.scrollIntoView({behavior: 'smooth'});
   };
+
+  // const scrollToSection = (elementRef: unknown) => {
+  //   console.log('scrollToSection')
+  //   window.scrollTo({
+  //     top: elementRef.current.offsetTop,
+  //     // top: elementRef.current?.scrollIntoView({behavior: 'smooth'}),
+  //     behavior: 'smooth'
+  //   });
+  // };
 
 
 

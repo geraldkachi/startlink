@@ -1,5 +1,5 @@
 import { Modal } from 'antd'
-import { useState, useRef, RefObject } from 'react'
+import { useState, RefObject, forwardRef, Ref } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { Link, useNavigate } from 'react-router-dom'
 // import Navicon from "../../assets/svg/navicon.png"
@@ -11,7 +11,7 @@ interface Props {
     ref?: RefObject<HTMLDivElement> | null
     // onUpdateActiveLink?: (n: string) => void
 }
-const Navbar = ({scrollToSection, ref, }: Props) => {
+const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | null>) => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -27,7 +27,7 @@ const Navbar = ({scrollToSection, ref, }: Props) => {
                     {/* <Link to="#contact"> */}
 
                     <button type="button" onClick={() => {
-                        scrollToSection &&  scrollToSection(ref)
+                        scrollToSection &&  scrollToSection(ref && ref)
                         }} className="text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none">Contact Support </button>
                     {/* </Link> */}
                         {' '}
@@ -87,6 +87,6 @@ const Navbar = ({scrollToSection, ref, }: Props) => {
             </div>
         </div>
     )
-}
+})
 
 export default Navbar
