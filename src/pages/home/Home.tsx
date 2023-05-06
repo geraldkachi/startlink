@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Hero, Navbar } from "../../components";
 
 const Home = () => {
@@ -7,39 +7,19 @@ const Home = () => {
   //     ref.current?.scrollIntoView({behavior: 'smooth'});
   // };
 
-  const scrollToSection = (elementRef) => {
+  const scrollToSection = (elementRef?: any) => {
     window.scrollTo({
-      top: elementRef.current.offsetTop,
+      top: elementRef.current?.scrollIntoView({behavior: 'smooth'}),
       behavior: 'smooth'
     });
   };
 
 
 
-  const [activeLink, setActiveLink] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    }
-
-    window.addEventListener("scroll", onScroll);
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [])
-
-  const onUpdateActiveLink = (value) => {
-    setActiveLink(value);
-  }
 
   return (
-    <div className={scrolled ? "scrolled" : ""}>
-      <Navbar {...{ scrollToSection, ref, onUpdateActiveLink }} />
+    <div>
+      <Navbar {...{ scrollToSection, ref }} />
 
       <Hero {...{scrollToSection, ref}} />
     </div>

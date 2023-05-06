@@ -14,7 +14,7 @@ import PlaceOrder from '../placeorder/PlaceOrder'
 
 interface Props {
     scrollToSection: (n: RefObject<HTMLDivElement>) => void | undefined,
-    ref: RefObject<HTMLDivElement> | undefined | null,
+    ref: RefObject<HTMLDivElement> | null,
 }
 
 const Hero = ({ scrollToSection, ref }: Props) => {
