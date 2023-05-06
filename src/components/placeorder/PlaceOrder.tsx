@@ -33,7 +33,7 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
       <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
         <div>
-          <img src={Image} alt="" />
+          <img src={Image} alt="starlink" />
 
           <div className='p-3'>
             {/* <PlaceIconTv className='w-1/2' /> */}

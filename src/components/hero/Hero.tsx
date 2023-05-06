@@ -105,7 +105,6 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                         <CompanyList />
                     </div>
                 </div>
-                {/* <img src="https://source.unsplash.com/random/480x320" alt="" className="w-5/6 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 dark:bg-gray-500" /> */}
             </section>
 
 

@@ -18,8 +18,6 @@ const Home = () => {
   // };
 
 
-
-
   return (
     <div>
       <Navbar {...{ scrollToSection }} />
