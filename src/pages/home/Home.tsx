@@ -3,8 +3,9 @@ import { Hero, Navbar } from "../../components";
 
 const Home = () => {
   const ref = useRef<HTMLDivElement>(null);
+
   const scrollToSection = () => {
-      ref.current?.scrollIntoView({behavior: 'smooth'});
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   // const scrollToSection = (elementRef: unknown) => {
@@ -21,9 +22,9 @@ const Home = () => {
 
   return (
     <div>
-      <Navbar {...{ scrollToSection, ref }} />
+      <Navbar {...{ scrollToSection }} />
 
-      <Hero {...{scrollToSection, ref}} />
+      <Hero {...{ scrollToSection, ref }} />
     </div>
   )
 }

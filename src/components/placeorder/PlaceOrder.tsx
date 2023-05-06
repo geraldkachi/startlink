@@ -46,7 +46,7 @@ const PlaceOrder = ({ setStateNew }: Props) => {
                   <button onClick={decreaseCount} disabled={count === 1}>
                     <svg className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect y="0.569946" width="40" height="40" rx="5" fill="#E1E1E1" />
-                      <path fill-rule="evenodd" clipRule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
+                      <path fillRule="evenodd" clipRule="evenodd" d="M30 19.5699V21.5699H10V19.5699H30Z" fill="#5E5E6D" />
                     </svg>
                   </button>
                   <p className="mx-2 border text-center w-8">{count}</p>
@@ -55,7 +55,7 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
                   <svg onClick={increaseCount} className='cursor-pointer px-1' width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect y="0.569946" width="40" height="40" rx="5" fill="#2568FF" />
-                    <path fill-rule="evenodd" clipRule="evenodd" d="M21.5 19.0699H29V22.0699H21.5V29.5699H18.5V22.0699H11V19.0699H18.5V11.5699H21.5V19.0699Z" fill="white" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M21.5 19.0699H29V22.0699H21.5V29.5699H18.5V22.0699H11V19.0699H18.5V11.5699H21.5V19.0699Z" fill="white" />
                   </svg>
 
                 </div>
@@ -84,13 +84,13 @@ const PlaceOrder = ({ setStateNew }: Props) => {
               width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_b_1_654)">
                 <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
-                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </g>
-              <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M25 15L15 25" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M15 15L25 25" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <defs>
-                <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity="0" result="BackgroundImageFix" />
                   <feGaussianBlur in="BackgroundImageFix" stdDeviation="8" />
                   <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_654" />
                   <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_654" result="shape" />

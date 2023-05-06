@@ -3,7 +3,7 @@ const CompanyList = () => {
         <div className='flex flex-col sm:flex-row items-center justify-between max-w-4xl mx-auto -mt-10 p-3'>
             <div className="flex items-center mb-5">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clipRule="evenodd" d="M10.6224 3.09567H3.16968V22.2957H22.3697V14.8557L10.6224 3.09567ZM18.5297 22.2957H3.16969V6.93567L18.5297 22.2957Z" fill="#141313" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M10.6224 3.09567H3.16968V22.2957H22.3697V14.8557L10.6224 3.09567ZM18.5297 22.2957H3.16969V6.93567L18.5297 22.2957Z" fill="#141313" />
                     <path d="M22.3696 3.09565L16.6096 3.09565L16.6096 8.85565L22.3696 8.85565L22.3696 3.09565Z" fill="#141313" />
                     <path d="M10.8497 14.6155L3.16974 14.6155L10.8497 22.2955L10.8497 14.6155Z" fill="#141313" />
                 </svg>
@@ -36,9 +36,9 @@ const CompanyList = () => {
 
             <div className="flex items-center mb-5">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_1_392)">
-                        <path fill-rule="evenodd" clipRule="evenodd" d="M12.1399 15.3764C15.3585 15.3764 17.9678 12.7672 17.9678 9.54854C17.9678 6.32988 15.3585 3.72065 12.1399 3.72065H6.31201V9.54854C6.31201 12.7672 8.92125 15.3764 12.1399 15.3764ZM20.8817 9.54854C20.8817 14.3765 16.9679 18.2904 12.1399 18.2904C7.31192 18.2904 3.39807 14.3765 3.39807 9.54854V0.806702H12.1399C16.9679 0.806702 20.8817 4.72056 20.8817 9.54854Z" fill="#141313" />
-                        <path fill-rule="evenodd" clipRule="evenodd" d="M12.1399 21.6707C15.3585 21.6707 17.9678 19.0615 17.9678 15.8428C17.9678 12.6242 15.3585 10.0149 12.1399 10.0149H6.31201V15.8428C6.31201 19.0615 8.92125 21.6707 12.1399 21.6707ZM20.8817 15.8428C20.8817 20.6708 16.9679 24.5847 12.1399 24.5847C7.31192 24.5847 3.39807 20.6708 3.39807 15.8428V7.10098H12.1399C16.9679 7.10098 20.8817 11.0148 20.8817 15.8428Z" fill="#141313" />
+                    <g clipPath="url(#clip0_1_392)">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M12.1399 15.3764C15.3585 15.3764 17.9678 12.7672 17.9678 9.54854C17.9678 6.32988 15.3585 3.72065 12.1399 3.72065H6.31201V9.54854C6.31201 12.7672 8.92125 15.3764 12.1399 15.3764ZM20.8817 9.54854C20.8817 14.3765 16.9679 18.2904 12.1399 18.2904C7.31192 18.2904 3.39807 14.3765 3.39807 9.54854V0.806702H12.1399C16.9679 0.806702 20.8817 4.72056 20.8817 9.54854Z" fill="#141313" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M12.1399 21.6707C15.3585 21.6707 17.9678 19.0615 17.9678 15.8428C17.9678 12.6242 15.3585 10.0149 12.1399 10.0149H6.31201V15.8428C6.31201 19.0615 8.92125 21.6707 12.1399 21.6707ZM20.8817 15.8428C20.8817 20.6708 16.9679 24.5847 12.1399 24.5847C7.31192 24.5847 3.39807 20.6708 3.39807 15.8428V7.10098H12.1399C16.9679 7.10098 20.8817 11.0148 20.8817 15.8428Z" fill="#141313" />
                     </g>
                     <defs>
                         <clipPath id="clip0_1_392">
@@ -52,10 +52,10 @@ const CompanyList = () => {
 
             <div className="flex items-center mb-5">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.4398 7.89551L2.83984 12.6955V17.4955M12.4398 12.6955L7.63984 15.0955" stroke="#141313" stroke-width="1.2" stroke-linejoin="round" />
-                    <path d="M12.4398 17.4956L2.83984 12.6956V17.4956L12.4398 22.2956V17.4956Z" stroke="#141313" stroke-width="1.2" stroke-linejoin="round" />
-                    <path d="M22.0398 12.6956V7.89564L12.4398 3.09564V7.89564L17.2398 10.2956" stroke="#141313" stroke-width="1.2" stroke-linejoin="round" />
-                    <path d="M12.4398 12.6955L22.0398 7.89551V12.6955L12.4398 17.4955V12.6955Z" stroke="#141313" stroke-width="1.2" stroke-linejoin="round" />
+                    <path d="M12.4398 7.89551L2.83984 12.6955V17.4955M12.4398 12.6955L7.63984 15.0955" stroke="#141313" strokeWidth="1.2" strokeLinejoin="round" />
+                    <path d="M12.4398 17.4956L2.83984 12.6956V17.4956L12.4398 22.2956V17.4956Z" stroke="#141313" strokeWidth="1.2" strokeLinejoin="round" />
+                    <path d="M22.0398 12.6956V7.89564L12.4398 3.09564V7.89564L17.2398 10.2956" stroke="#141313" strokeWidth="1.2" strokeLinejoin="round" />
+                    <path d="M12.4398 12.6955L22.0398 7.89551V12.6955L12.4398 17.4955V12.6955Z" stroke="#141313" strokeWidth="1.2" strokeLinejoin="round" />
                 </svg>
 
                 <p className="text-[#141313] text-xl ml-2 font-semibold">EpicDev</p>

@@ -1,9 +1,8 @@
-import Cookies from "js-cookie"
 import UseAuth from '../hooks/useAuth';
 
 type IData = {
-    data: object | any;
-    meta: object & IToken | any;
+    data: object;
+    meta: object & IToken;
     message: string;
 }
 

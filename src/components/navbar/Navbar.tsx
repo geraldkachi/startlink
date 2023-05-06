@@ -1,5 +1,5 @@
 import { Modal } from 'antd'
-import { useState, RefObject, forwardRef, Ref } from 'react'
+import { useState, RefObject } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 import { Link, useNavigate } from 'react-router-dom'
 // import Navicon from "../../assets/svg/navicon.png"
@@ -7,11 +7,12 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import Navicon from "../../assets/svg/newnewnavicon.svg"
 interface Props {
-    scrollToSection: (n?: RefObject<HTMLDivElement>) => void | undefined,
-    ref?: RefObject<HTMLDivElement> | null
+    scrollToSection?: () => void | undefined,
+    // scrollToSection?: (n?: RefObject<HTMLDivElement>) => void | undefined,
+    // ref?: RefObject<HTMLDivElement> | null
     // onUpdateActiveLink?: (n: string) => void
 }
-const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | null>) => {
+const Navbar = ({scrollToSection}: Props) => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -27,14 +28,15 @@ const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | 
                     {/* <Link to="#contact"> */}
 
                     <button type="button" onClick={() => {
-                        scrollToSection &&  scrollToSection(ref && ref)
+                        // window.location === '/placeorder'
+                        scrollToSection &&  scrollToSection()
                         }} className="text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none">Contact Support </button>
                     {/* </Link> */}
                         {' '}
                     <button type="button" onClick={() => navigate('/placeorder')} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 
                         <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g clip-path="url(#clip0_1_322)">
+                            <g clipPath="url(#clip0_1_322)">
                                 <path d="M11.2814 7.68114L7.70535 4.10514L8.64802 3.16248L13.8334 8.34781L8.64802 13.5331L7.70535 12.5905L11.2814 9.01448H3.16669V7.68114H11.2814Z" fill="white" />
                             </g>
                             <defs>
@@ -47,7 +49,7 @@ const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | 
                     </button>
                     {/* <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
-              <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+              <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </button> */}
                 </div>
             </div>
@@ -68,8 +70,8 @@ const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | 
                                 <path d="M25 15L15 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 <path d="M15 15L25 25" stroke="#2568FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 <defs>
-                                    <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <filter id="filter0_b_1_654" x="-13.6665" y="-13.6667" width="67.3333" height="67.3333" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                        <feFlood floodOpacity="0" result="BackgroundImageFix" />
                                         <feGaussianBlur in="BackgroundImageFix" stdDeviation="8" />
                                         <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1_654" />
                                         <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1_654" result="shape" />
@@ -87,6 +89,6 @@ const Navbar = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement | 
             </div>
         </div>
     )
-})
+}
 
 export default Navbar

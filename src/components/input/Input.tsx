@@ -163,7 +163,6 @@ type Props = {
 	inputClassName?: string;
 	LeadingIcon?: () => JSX.Element;
 	TrailingIcon?: () => JSX.Element;
-	innerRef?: any;
 	inputType?: 'default' | 'success' | 'warning' | 'error';
 };
 
@@ -181,7 +180,7 @@ export default function Input(
 		disabled,
 		readOnly,
 		helptext,
-		innerRef,
+		// innerRef,
 		className,
 		LeadingIcon,
 		TrailingIcon,
@@ -235,7 +234,7 @@ export default function Input(
 					</span>
 				)}
 				<input
-					{...innerRef}
+					// {...innerRef}
 					{...props}
 					// className={`text-base p-2 flex-grow min-w-64 focus:outline-none focus:ring focus:border-blue-100`}
                     className="w-full border border-[#C2D0D6] p-3 rounded-lg focus:outline-[#2B8572]"
