@@ -23,7 +23,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
     const [stateNew, setStateNew] = useState<boolean>(false)
 
     return (
-        <div className="mt-20">
+        <div className="sm:mt-20">
             <section>
                 <div className="d relative">
                     <svg className='absolute hidden 2xl:block left-[540px] top-[310px]' width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
