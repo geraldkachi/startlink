@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 // import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
 import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
-import { Ref, RefObject, forwardRef, useState } from 'react'
+import { FormEvent, Ref, forwardRef, useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
 
 interface Props {
@@ -21,6 +21,10 @@ interface Props {
 const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) => {
     const navigate = useNavigate()
     const [stateNew, setStateNew] = useState<boolean>(false)
+
+    const onFinish = (e: FormEvent) => {
+        e.preventDefault()
+    }
 
     return (
         <div className="sm:mt-20">
@@ -252,7 +256,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                 <div className='bg-[#F9FBFD] py-10'>
                     <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
                     <div className="max-w-md mx-auto p-5 bg-[#F2F3F8]">
-                        <form>
+                        <form onSubmit={onFinish}>
                             <div className="mb-2">
                                 <input type="text" name='first name' id="full name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Name" required />
                             </div>
@@ -285,7 +289,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
 
                             width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_b_1_654)">
-                                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fill-opacity="0.3" />
+                                <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" fill="white" fillOpacity="0.3" />
                                 <path d="M20.0002 36.6666C29.2049 36.6666 36.6668 29.2047 36.6668 19.9999C36.6668 10.7952 29.2049 3.33325 20.0002 3.33325C10.7954 3.33325 3.3335 10.7952 3.3335 19.9999C3.3335 29.2047 10.7954 36.6666 20.0002 36.6666Z" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </g>
                             <path d="M25 15L15 25" stroke="#2568FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
