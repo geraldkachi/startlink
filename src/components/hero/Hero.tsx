@@ -28,7 +28,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
 
     return (
         <div className="sm:mt-20">
-            <section>
+            <section className='max-w-screen-2xl mx-auto'>
                 <div className="d relative">
                     <svg className='absolute hidden xl:block 2xl:block left-[480px] top-[340px]' width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M38.9376 10.5831C30.9018 9.53512 22.6632 10.519 16.159 15.9542C10.2882 20.8602 8.64858 28.0057 16.34 32.061C19.9809 33.9806 25.581 33.823 28.2968 30.373C31.3225 26.5293 25.7727 23.3157 22.5285 23.1977C14.9511 22.9218 7.32738 28.5335 6.36158 36.7852C5.21785 46.5571 15.3318 46.1651 15.3071 46.1025" stroke="#141313" strokeWidth="2" strokeMiterlimit="1.5" strokeLinecap="round" strokeLinejoin="round" />
