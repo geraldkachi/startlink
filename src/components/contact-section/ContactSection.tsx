@@ -9,7 +9,7 @@ const ContactSection = forwardRef((props, ref) => {
             <div className='bg-[#F9FBFD] text-white py-10 neue'>
                 <div className="max-w-4xl mx-auto gap-x-5 p-5 grid md:grid-cols-5 bg-[#020722]">
                     <div className='md:col-span-2 my-4'>
-                        <h1 className="text-5xl leading-10 md:leading-[9rem] sm:text-5xl pb-0 font-semibold neue">Contact Us</h1>
+                        <h1 className="text-5xl leading-10 md:leading-[9rem] sm:text-5xl pb-8 sm:pb-0  font-semibold neue">Contact Us</h1>
 
                         <div className="flex items-center gap-x-3 font-normal  sm:text-xl py-3 sm:py-2">
                             <span>
@@ -46,31 +46,27 @@ const ContactSection = forwardRef((props, ref) => {
 
                     <form onSubmit={onFinish} className='md:col-span-3 rounded-xl p-6 bg-white'>
                         <div className="mb-2">
-                            {/* <input type="text" name='first name' id="full name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Name" required /> */}
-
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">First Name</label>
-                                <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
-                            {/* <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Email Address" required /> */}
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Email Address</label>
-                                <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
-                            {/* <input type="tel" id="phone" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Phone Number" required /> */}
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Phone Number</label>
-                                <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
 
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Message</label>
-                            <textarea rows={9} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder=""></textarea>
+                            <textarea rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
                         </div>
                         <div className="mb-2 text-center">
                             <button type="submit" className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-sem text-sm px-5 py-4 text-center flex items-center justify-center">Send Message</button>
