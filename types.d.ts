@@ -1,8 +1,7 @@
-export interface CreateStaffType{
-    firstName: string,
-    lastName: string,
-    email: string,
-    role: string,
-    password: string,
-    phoneNumber: string
+export interface CreatePayType{
+    callBackUrl: string,
+    reference: string,
+    merchantId: string | number,
+    description: string,
+    amount: string | number
 }

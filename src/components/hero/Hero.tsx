@@ -41,7 +41,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                     <LeftIocnHero className='absolute hidden xl:block right-10 top-44 z-20' />
                     {/* <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32"> */}
                     <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center  md:py- md:px-10 lg:px-32">
-                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="animate-text text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
+                        <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="animate-text text-transparent bg-clip-text bg-gradient-to-r from-[#1460DD] from-10% via-sky-500 via-70% to-[#1460DD] 10% to-90% whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
                         <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.</p>
                         <div className="flex flex-wrap justify-center">
                             <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
@@ -255,7 +255,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
             <div ref={ref} id="contact">
                 <div className='bg-[#F9FBFD] py-10'>
                     <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
-                    <div className="max-w-md mx-auto p-5 bg-[#F2F3F8]">
+                    <div className="max-w-2xl mx-auto p-5 bg-[#F2F3F8]">
                         <form onSubmit={onFinish}>
                             <div className="mb-2">
                                 <input type="text" name='first name' id="full name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Name" required />

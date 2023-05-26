@@ -11,7 +11,7 @@ export const instance = () => {
         timeout: 50000,
         headers: {
             "Content-Type": "application/json",
-            'x-ApiKey': '<string>',
+            'x-ApiKey': 'TEST_API_KEY',
         },
     });
 
@@ -21,6 +21,7 @@ export const instance = () => {
         // if (token) {
         //     config.headers.Authorization = `Bearer ${token}`
         // }
+            config.headers.Authorization = `Bearer ${''}`
         return config;
     });
 
@@ -28,6 +29,7 @@ export const instance = () => {
 }
 
 export const next = (e: AxiosError | any) => {
+    console.error(e, 'error')
     if (e?.response?.data?.message === "jwt expired") {
         toast.info("Logging you out!");
         setTimeout(() => {

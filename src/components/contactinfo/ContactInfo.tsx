@@ -1,6 +1,12 @@
-import { Dispatch, SetStateAction, useState } from "react"
+import * as yup from "yup";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react"
 import useAuth from "../../hooks/useAuth"
 import { Select } from "antd"
+import { createPayUrl } from "../../server/createPaymenturl"
+import { useMutation } from "react-query"
+import { CreatePayType } from "../../../types"
+import { toast } from "react-toastify";
+
 // import Select from 'react-select'
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
@@ -46,12 +52,20 @@ const rolesOption = [
     { label: "Zamfara", value: "ZAMFARA" },
 ];
 
+let schema = yup.object().shape({
+    // email: yup.string(),
+    // password: yup.string().required("Enter a valid password").min(6).nullable(),
+});
+
 const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
+    const [state, setState] = useState()
     const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
-    const shippingFee = useAuth(state => state.shippingFee)
     const totalFee = useAuth(state => state.totalFee)
-    const [state, setState] = useState()
+    const shippingFee = useAuth(state => state.shippingFee)
+
+    const mutation = useMutation(createPayUrl)
+
 
     const formatKoboAmountForDisplay = (amount: number): string => {
         return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
@@ -79,10 +93,41 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     //   };
 
 
+    const onFinish = (e: FormEvent) => {
+        e.preventDefault()
+
+        const values: CreatePayType = {
+            callBackUrl: "https://mywebsite.com/paid",
+            reference: "unique_ref_buscuit_123",
+            merchantId: 100000000000000,
+            description: "Ten cartons of buscuit",
+            amount: 210200.50
+        }
+
+        console.log(values, 'values')
+
+        schema
+            .validate(values)
+            .then((_val) => {
+                mutation.mutate(values, {
+                    onSuccess: (data) => {
+                        console.log(data, 'data  aa')
+                        toast.success('Payment Url Created Successfully')
+                    },
+                    onError: (e: unknown) => {
+                        if (e instanceof Error) {
+                            toast.error(e.message)
+                        }
+                    }
+                });
+            })
+
+    }
+
     return (
         <div className="p-3">
             <p className="text-2xl font-semibold my-5 neue">Contact Information</p>
-            <form className=''>
+            <form className='' onSubmit={onFinish}>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">First Name</label>
@@ -110,7 +155,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                     <div className="mb-2">
                         <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Shipping Address</label>
-                        <input type="email" id="address" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                        <input type="text" id="address" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="mb-2">
@@ -128,7 +173,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                                 options={rolesOption}
                                 className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full placeholder-[#111113]::placeholder"
                             />
-                             {/* <Select options={rolesOption} styles={customStyles} /> */}
+                            {/* <Select options={rolesOption} styles={customStyles} /> */}
                             {/* <input type="text" id="state" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-3 placeholder-[#111113]::placeholder" placeholder="Lagos" required /> */}
                         </div>
                     </div>
@@ -154,7 +199,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
 
                 <div className="mb-2">
-                    <button type="button" onClick={() => {
+                    <button type="submit" disabled={mutation.isLoading}
+                        onClick={() => {
                         // setStateNew && setStateNew(true)
                         setStateSuccess && setStateSuccess(true)
                     }} className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-medium text-sm px-5 py-4 text-center flex items-center justify-between">
@@ -165,6 +211,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </svg>
                     </button>
                 </div>
+
+                <button type="submit">SUbmit</button>
             </form>
         </div>
     )
