@@ -1,6 +1,6 @@
-import { FormEvent, forwardRef } from 'react'
+import { FormEvent, Ref, forwardRef } from 'react'
 
-const ContactSection = forwardRef((props, ref) => {
+const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
     const onFinish = (e: FormEvent) => {
         e.preventDefault()
     }
@@ -47,25 +47,25 @@ const ContactSection = forwardRef((props, ref) => {
                     <form onSubmit={onFinish} className='md:col-span-3 rounded-xl p-6 bg-white'>
                         <div className="mb-2">
                             <div className="mb-2">
-                                <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">First Name</label>
+                                <label className="block mb-2 text-sm font-semibold text-gray-900">First Name</label>
                                 <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
                             <div className="mb-2">
-                                <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Email Address</label>
+                                <label className="block mb-2 text-sm font-semibold text-gray-900">Email Address</label>
                                 <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
                             <div className="mb-2">
-                                <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Phone Number</label>
+                                <label className="block mb-2 text-sm font-semibold text-gray-900">Phone Number</label>
                                 <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
 
                         <div className="mb-2">
-                            <label className="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Message</label>
+                            <label className="block mb-2 text-sm font-semibold text-gray-900">Message</label>
                             <textarea rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
                         </div>
                         <div className="mb-2 text-center">
