@@ -11,7 +11,7 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                     <div className='md:col-span-2 my-4'>
                         <h1 className="text-5xl leading-10 md:leading-[9rem] sm:text-5xl pb-8 sm:pb-0  font-semibold neue">Contact Us</h1>
 
-                        <div className="flex items-center gap-x-3 font-normal  sm:text-xl py-3 sm:py-2">
+                        <div className="flex items-center gap-x-3 font-normaltext-base py-3 sm:py-2">
                             <span>
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M12.5 2C16.37 2 19.5 5.13 19.5 9C19.5 14.25 12.5 22 12.5 22C12.5 22 5.5 14.25 5.5 9C5.5 5.13 8.63 2 12.5 2ZM7.5 9C7.5 11.85 10.42 16.21 12.5 18.88C14.62 16.19 17.5 11.88 17.5 9C17.5 6.24 15.26 4 12.5 4C9.74 4 7.5 6.24 7.5 9ZM12.5 11.5C11.1193 11.5 10 10.3807 10 9C10 7.61929 11.1193 6.5 12.5 6.5C13.8807 6.5 15 7.61929 15 9C15 10.3807 13.8807 11.5 12.5 11.5Z" fill="white" />
@@ -21,7 +21,7 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                             <p>32, Ade Ajayi Street, Ogudu GRA, Lagos</p>
                         </div>
 
-                        <div className="flex items-center gap-x-3 font-normal  sm:text-xl py-3 sm:py-2">
+                        <div className="flex items-center gap-x-3 font-normal text-base py-3 sm:py-2">
                             <span>
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M22.5 6C22.5 4.9 21.6 4 20.5 4H4.5C3.4 4 2.5 4.9 2.5 6V18C2.5 19.1 3.4 20 4.5 20H20.5C21.6 20 22.5 19.1 22.5 18V6ZM20.5 6L12.5 11L4.5 6H20.5ZM20.5 18H4.5V8L12.5 13L20.5 8V18Z" fill="white" />
@@ -32,7 +32,7 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                             <p>info@umoyanet.com</p>
                         </div>
 
-                        <div className="flex items-center gap-x-3 font-normal  sm:text-xl py-3 sm:py-2">
+                        <div className="flex items-center gap-x-3 font-normal text-base py-3 sm:py-2">
                             <span>
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M7.04 5C7.1 5.89 7.25 6.76 7.49 7.59L6.29 8.79C5.88 7.59 5.62 6.32 5.53 5H7.04ZM16.9 17.02C17.75 17.26 18.62 17.41 19.5 17.47V18.96C18.18 18.87 16.91 18.61 15.7 18.21L16.9 17.02ZM8 3H4.5C3.95 3 3.5 3.45 3.5 4C3.5 13.39 11.11 21 20.5 21C21.05 21 21.5 20.55 21.5 20V16.51C21.5 15.96 21.05 15.51 20.5 15.51C19.26 15.51 18.05 15.31 16.93 14.94C16.83 14.9 16.72 14.89 16.62 14.89C16.36 14.89 16.11 14.99 15.91 15.18L13.71 17.38C10.88 15.93 8.56 13.62 7.12 10.79L9.32 8.59C9.6 8.31 9.68 7.92 9.57 7.57C9.2 6.45 9 5.25 9 4C9 3.45 8.55 3 8 3Z" fill="white" />
