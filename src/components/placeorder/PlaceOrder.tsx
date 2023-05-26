@@ -36,10 +36,8 @@ const PlaceOrder = ({ setStateNew }: Props) => {
           <img src={Image} alt="starlink" />
 
           <div className='p-3'>
-            {/* <PlaceIconTv className='w-1/2' /> */}
-            {/* <img src={Image} alt="star" /> */}
-            <div className="my-">
-              <div className="text-[#031744] text-4xl font-semibold">Starlink Standard Kit</div>
+            <div className="">
+              <div className="text-[#031744] text-[2rem] font-semibold">Starlink Standard Kit</div>
 
               <div className="my-2">
                 <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
@@ -60,11 +58,21 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
                 </div>
               </div>
-              <p className="mt-10 text-[#031744] font-semibold text-2xl sm:text-3xl">{formatKoboAmountForDisplay(count * costFee)}</p>
+              <p className="mt-3 text-[#031744] font-semibold text-2xl">{formatKoboAmountForDisplay(count * costFee)}</p>
 
-              <p className="mt-5 text-[#031744] text-lg font-normal neue">
+              {/* <p className="mt-5 text-[#031744] text-lg font-normal neue">
                 High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.
-              </p>
+              </p> */}
+              <div className="neue mt-2">
+                <p className=" font-semibold text-xl">What&apos;s in the box</p>
+                <ul className="ml-6 text-xl my-1 list-disc leading-6">
+                  <li>Starlink</li>
+                  <li>Base</li>
+                  <li>Router</li>
+                  <li>50ft (15.2m) Starlink cable </li>
+                  <li>6ft (1.8m) AC Cable</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
