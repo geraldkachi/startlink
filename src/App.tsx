@@ -1,10 +1,11 @@
 import './App.css'
 import { Suspense, useRef } from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { ToastContainer } from 'react-toastify';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
 import Home from './pages/home/Home';
-import PlaceOrderPage from './pages/login/PlaceOrderPage';
+import About from './pages/about/About';
 
 const App: React.FC = () => {
   const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
@@ -30,7 +31,8 @@ const App: React.FC = () => {
         <Suspense fallback={"Loading"}>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/placeorder' element={<PlaceOrderPage />} />
+            {/* <Route path='/place-order' element={<PlaceOrderPage />} /> */}
+            <Route path='/about' element={<About />} />
           </Routes>
         </Suspense>
 

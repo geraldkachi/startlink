@@ -1,6 +1,6 @@
 const CompanyList = () => {
     return (
-        <div className='flex flex-col sm:flex-row items-center justify-between max-w-4xl mx-auto -mt-10 p-3'>
+        <div className='z-50 flex flex-col sm:flex-row items-center justify-between max-w-4xl mx-auto -mt-10 p-3'>
             <div className="flex items-center mb-5">
                 <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M10.6224 3.09567H3.16968V22.2957H22.3697V14.8557L10.6224 3.09567ZM18.5297 22.2957H3.16969V6.93567L18.5297 22.2957Z" fill="#141313" />
