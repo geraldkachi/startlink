@@ -31,7 +31,6 @@ const App: React.FC = () => {
         <Suspense fallback={"Loading"}>
           <Routes>
             <Route path='/' element={<Home />} />
-            {/* <Route path='/place-order' element={<PlaceOrderPage />} /> */}
             <Route path='/about' element={<About />} />
           </Routes>
         </Suspense>
