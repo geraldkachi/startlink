@@ -11,6 +11,7 @@ import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
 import { FormEvent, Ref, forwardRef, useState } from 'react'
 import PlaceOrder from '../placeorder/PlaceOrder'
+import WhyStarlink from '../why-starlink/WhyStarlink'
 
 interface Props {
     scrollToSection?: () => void
@@ -44,7 +45,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                         <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="animate-text text-transparent bg-clip-text bg-gradient-to-r from-[#1460DD] from-10% via-sky-500 via-70% to-[#1460DD] 10% to-90% whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
                         <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. NGN19,260/mo with a one-time hardware cost of NGN268,584.</p>
                         <div className="flex flex-wrap justify-center">
-                            <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
+                            <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 
                                 <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_1_322)">
@@ -112,9 +113,11 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
             </section>
 
 
+            <WhyStarlink />
+
 
             <section>
-                <div className='bg-[#D1DDFA] py-10 sm:py-20'>
+                <div className='bg-[#020722] py-10 sm:py-20 text-white'>
                     <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl pb-10 text-center mx-auto neue">How to get your device</h1>
                     <div className="max-w-7xl mx-auto">
 
@@ -233,7 +236,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                         </div>
                         <div className="mt-10 max-w-6xl mx-auto flex items-start justify-center">
 
-                            <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center justify-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-6 md:px-20 sm:py-4 py-2 text-center mr-3 md:mr-0">Place an order
+                            <button onClick={() => navigate('/placeorder')} type="button" className="flex items-center justify-center m-2 text-white bg-[#2568FF] font-semibold focus:outline-none focus:ring-blue-300 rounded-md sm:rounded-lg text-sm px-6 md:px-20 sm:py-4 py-2 text-center mr-3 md:mr-0">Place an order: ;
 
                                 <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_1_322)">

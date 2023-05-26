@@ -29,10 +29,13 @@ const Navbar = ({scrollToSection}: Props) => {
 
                     <button type="button" onClick={() => {
                         scrollToSection &&  scrollToSection()
-                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
+                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
+                    <button type="button" onClick={() => {
+                        scrollToSection &&  scrollToSection()
+                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
                     {/* </Link> */}
                         {' '}
-                    <button type="button" onClick={() => navigate('/placeorder')} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
+                    <button type="button" onClick={() => navigate('/placeorder')} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-4 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 
                         <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_1_322)">
