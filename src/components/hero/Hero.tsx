@@ -253,7 +253,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
             </section>
 
             <div ref={ref} id="contact">
-                <div className='bg-[#F9FBFD] py-10'>
+                <div className='bg-[#F9FBFD] pt-10'>
                     <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
                     <div className="max-w-2xl mx-auto p-5 bg-[#F2F3F8]">
                         <form onSubmit={onFinish}>
@@ -268,7 +268,7 @@ const Hero = forwardRef(({scrollToSection}: Props , ref: Ref<HTMLDivElement>) =>
                             </div>
 
                             <div className="mb-2">
-                                <textarea rows={4} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Message"></textarea>
+                                <textarea rows={6} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Message"></textarea>
                             </div>
                             <div className="mb-2">
                                 <button type="submit" className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-4 text-center">Send Message</button>
