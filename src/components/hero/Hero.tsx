@@ -64,8 +64,8 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
                             }} type="button" className="flex items-center text-[#141313] border-[#141313] border m-2 bg-[#ffffff] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Contact Support</button>
                         </div>
 
-                        <div className="flex flex-col items-center justify-center my-3 sm:mt-36">
-                            <div className="block text-center">Trusted By 500+ Companies</div>
+                        <div className="flex flex-col items-center justify-center my-3 sm:mt-48">
+                            {/* <div className="block text-center">Trusted By 500+ Companies</div>
                             <div>
                                 <svg width="120" height="25" viewBox="0 0 120 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clipPath="url(#clip0_0_1)">
@@ -102,8 +102,9 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
                                     </defs>
                                 </svg>
 
-                            </div>
+                            </div> */}
                         </div>
+
                     </div>
                     <div className="pb-10 lg:pb-24">
                         {/* <CompanyList /> */}
