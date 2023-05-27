@@ -198,10 +198,41 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                     </div>
                 </div>
 
+                <div className="neue my-2">
+                    <p className="text-[#031744] text-2xl mb-2 font-semibold">Payment Method</p>
+                    <p className="font-normal text-xl">Select Payment Method</p>
+
+                    <div className="neue flex items-center cursor-pointer pl-4 border border-gray-200 rounded-lg my-3">
+                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
+                            <div className="flex items-center justify-between text-[#003E51]">
+                                <div>
+                                    <div className="w-full text-base font-semibold">Pay with Card</div>
+                                    <div className="w-full sm:text-base font-normal">Accepts all debit/credit cards</div>
+                                </div>
+
+                                <img src="/visaimg.svg" alt="visa" />
+                            </div>
+                        </label>
+                    </div>
+                    <div className="neue flex items-center cursor-pointer pl-4 border border-gray-200 rounded-lg my-3">
+                        <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
+                            <div className="flex items-center justify-between text-[#003E51]">
+                                <div>
+                                    <div className="w-full text-base font-semibold">Pay with Specta</div>
+                                    <div className="w-full sm:text-base font-normal">Pay ₦128,989/month for 3 months</div>
+                                </div>
+                                <img src="/spectaimg.svg" alt="specta" />
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
 
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
-                        className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-medium text-sm px-5 py-4 text-center flex items-center justify-between">
+                        className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between">
                         <span>Checkout</span>
 
                         <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">

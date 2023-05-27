@@ -11,7 +11,7 @@ export const instance = () => {
         timeout: 50000,
         headers: {
             "Content-Type": "application/json",
-            'x-ApiKey': 'TEST_API_KEY',
+            'x-ApiKey': '9e6395deae0648c2baf823e64799e6dd',
         },
     });
 

@@ -1,10 +1,9 @@
-import { Dispatch, SetStateAction, useState } from "react"
-import PlaceIconTv from "../../assets/svg/PlaceIconTv"
-import ContactInfo from "../contactinfo/ContactInfo"
-import Image from "../../assets/svg/conimg.png"
-import useAuth from "../../hooks/useAuth"
-import OrderSuccessful from "../ordersuccessful/OrderSuccessful"
 import { Modal } from "antd"
+import { Dispatch, SetStateAction, useState } from "react"
+// import Image from "../../assets/svg/conimg.png"
+import useAuth from "../../hooks/useAuth"
+import ContactInfo from "../contactinfo/ContactInfo"
+import OrderSuccessful from "../ordersuccessful/OrderSuccessful"
 
 
 interface Props {
@@ -12,19 +11,15 @@ interface Props {
 }
 
 const PlaceOrder = ({ setStateNew }: Props) => {
-  // const [count, setCount] = useState<number>(1)
   const [stateSuccess, setStateSuccess] = useState<boolean>(false)
   const count = useAuth(state => state.count)
   const costFee = useAuth(state => state.costFee)
-
-
 
   const formatKoboAmountForDisplay = (amount: number): string => {
     return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
   };
   const increaseCount = useAuth((state) => state.increaseCount)
   const decreaseCount = useAuth((state) => state.decreaseCount)
-
 
   return (
     <div className='my-10'>
@@ -33,11 +28,12 @@ const PlaceOrder = ({ setStateNew }: Props) => {
 
       <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
         <div>
-          <img src={Image} alt="starlink" />
+          {/* <img src={Image} alt="starlink" /> */}
+          <img src='/modaldish.svg' className="w-full" alt="starlink" />
 
           <div className='p-3'>
             <div className="">
-              <div className="text-[#031744] text-[2rem] font-semibold">Starlink Standard Kit</div>
+              <div className="text-[#031744] text-3xl sm:text-[2rem] font-semibold">Starlink Standard Kit</div>
 
               <div className="my-2">
                 <div className=" flex items-center justify-center max-w-fit bg-[#F6F6F6] rounded-lg p-2">
