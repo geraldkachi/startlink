@@ -202,7 +202,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                     <p className="text-[#031744] text-2xl mb-2 font-semibold">Payment Method</p>
                     <p className="font-normal text-xl">Select Payment Method</p>
 
-                    <div className="neue flex items-center cursor-pointer pl-4 border border-gray-200 rounded-lg my-3">
+                    <div className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
                         <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
@@ -215,7 +215,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                             </div>
                         </label>
                     </div>
-                    <div className="neue flex items-center cursor-pointer pl-4 border border-gray-200 rounded-lg my-3">
+                    <div className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
                         <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
