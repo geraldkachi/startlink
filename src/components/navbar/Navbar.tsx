@@ -21,17 +21,15 @@ const Navbar = ({scrollToSection}: Props) => {
                    <img src={Navicon} alt="nav" />
                 </Link>
 
-                <div className="hidden sm:flex md:order-2">
+                <div className=" sm:flex md:order-2 items-center">
                     {/* <Link to="#contact"> */}
 
-                    <button type="button" onClick={() => navigate('/about')} className={`${ window.location.pathname === '/placeorder' && 'hidden'} font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
+                    <button type="button" onClick={() => navigate('/about')} className={`${ window.location.pathname === '/placeorder' && 'hidden'} sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
                     <button type="button" onClick={() => {
                         scrollToSection &&  scrollToSection()
-                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
-                    {/* </Link> */}
+                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} hidden sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
                         {' '}
-                    <button type="button" onClick={() => setStateNew(prev => !prev)} className="flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
-
+                    <button type="button" onClick={() => setStateNew(prev => !prev)} className="hidden sm:flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
                         <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_1_322)">
                                 <path d="M11.2814 7.68114L7.70535 4.10514L8.64802 3.16248L13.8334 8.34781L8.64802 13.5331L7.70535 12.5905L11.2814 9.01448H3.16669V7.68114H11.2814Z" fill="white" />

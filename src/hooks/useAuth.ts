@@ -23,9 +23,12 @@ const useAuth = create<State>((set, get) => ({
             totalFee: (state.count * state.costFee) + state.shippingFee
         }
     }),
-    shippingFee: 8584.00,
-    costFee: 268584,
-    totalFee: 8584.00 + 268584
+    // shippingFee: 8584.00,
+    // costFee: 268584,
+    // totalFee: 8584.00 + 268584
+    shippingFee: 10000.00,
+    costFee: 510720,
+    totalFee: 10000.00 + 268584
 }));
 
 export default useAuth;

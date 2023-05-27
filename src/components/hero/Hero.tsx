@@ -4,7 +4,7 @@ import RightIconHero from '../../assets/svg/RightIconHero'
 // import Grid1Icon from '../../assets/svg/Grid1Icon'
 // import Grid3Icon from '../../assets/svg/Grid3Icon'
 import Footer from '../navbar/Footer'
-import CompanyList from './CompanyList'
+// import CompanyList from './CompanyList'
 // import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
 import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
