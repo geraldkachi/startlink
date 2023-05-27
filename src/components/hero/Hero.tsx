@@ -115,7 +115,7 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
 
             <WhyStarlink {...{ setStateNew }} />
             <SimpleSelf {...{ setStateNew }} />
-            <YourDevice />
+            <YourDevice {...{ setStateNew }}  />
             <FinancialPartners />
             <ContactSection {...{ ref }} />
             <Footer />

@@ -1,4 +1,8 @@
-const YourDevice = () => {
+import { Dispatch, SetStateAction } from "react"
+interface Props {
+    setStateNew?: Dispatch<SetStateAction<boolean>>
+}
+const YourDevice = ({ setStateNew }: Props) => {
     return (
         <section>
             <div className='bg-[#020722] py-10 sm:py-20 text-white'>
@@ -120,7 +124,7 @@ const YourDevice = () => {
                     </div>
                     <div className="mt-10 max-w-6xl mx-auto flex items-start justify-center">
 
-                        <button type="button" className="flex items-center justify-center m-2 text-white bg-[#2568FF] font-semibold focus:outline-none focus:ring-blue-300 rounded-md sm:rounded-lg text-sm px-6 md:px-20 sm:py-4 py-2 text-center mr-3 md:mr-0">Place an order: ;
+                        <button type="button" onClick={() => setStateNew && setStateNew(prev => !prev)} className="flex items-center justify-center m-2 text-white bg-[#2568FF] font-semibold focus:outline-none focus:ring-blue-300 rounded-md sm:rounded-lg text-sm px-6 md:px-20 sm:py-4 py-2 text-center mr-3 md:mr-0">Place an order
 
                             <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_1_322)">
