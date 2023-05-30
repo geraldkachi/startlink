@@ -14,17 +14,6 @@ export const instance = () => {
             'x-ApiKey': '9e6395deae0648c2baf823e64799e6dd',
         },
     });
-
-    instanceHttp.interceptors.request.use((config) => {
-        config.headers = config.headers ?? {};
-
-        // if (token) {
-        //     config.headers.Authorization = `Bearer ${token}`
-        // }
-            config.headers.Authorization = `Bearer ${''}`
-        return config;
-    });
-
     return instanceHttp
 }
 

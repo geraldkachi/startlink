@@ -26,8 +26,8 @@ const About = forwardRef((props, ref: Ref<HTMLDivElement>) => {
           </p>
         </div>
 
-        <div className="md:col-span-2">
-          <img src="/aboutpageimg.svg" alt="aboutpageimg" />
+        <div className="md:col-span-2 flex items-center justify-center">
+          <img src="/aboutpageimg.svg" alt="about" />
         </div>
       </div>
 

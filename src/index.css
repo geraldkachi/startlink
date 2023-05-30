@@ -60,15 +60,15 @@ input[type='radio']:checked::after {
 
 
 input[type='radio'] {
-	display: flex;
+	/* display: flex;
 	width: 1.45em;
 	height: 1.25em;
 	appearance: none;
-	border-radius:  100%;
-	background: white;
 	align-items: center;
+	background: white;
+	border-radius:  100%;
 	justify-content: center;
-	border: 1px solid #c2d0d6;
+	border: 1px solid #c2d0d6; */
 }
 input[type='radio']:hover {
 	background: white;
@@ -83,5 +83,10 @@ input[type='radio']:checked::after {
 	font-size: 48px;
 	color: #031744;
 	position: absolute;
+  /* display: flex;
+	align-items: center;
+	justify-content: center; */
+
+  top: 0%;
 }
 
