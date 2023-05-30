@@ -8,8 +8,8 @@ const Footer = () => {
                     <div className=''>
                        <img src={FooterIcon} alt="FooterIcon" />
                     </div>
-                    <p className='text-base text-[#FFFFFF] opacity-50 my-3 hidden  sm:block'>A Subsidiary of PRUNEDGE</p>{' '}
-                    <p className='text-xs  sm:text-base text-[#FFFFFF] opacity-50 my-3 whitespace-nowrap'>© UmoyaNet {date.getFullYear()}  all rights reserved</p>
+                    <p className='text-base text-[#FFFFFF] opacity-50 my-3 hidden  sm:block'>A Subsidiary of Prunedge Development Technologies Ltd</p>{' '}
+                    <p className='text-xs  sm:text-base text-[#FFFFFF] opacity-50 my-3 whitespace-nowrap'>Copyright ©{date.getFullYear()} Umoyanet. All rights reserved</p>
                 </div>
 
             </footer>

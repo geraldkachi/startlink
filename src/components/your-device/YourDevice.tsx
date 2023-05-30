@@ -118,7 +118,7 @@ const YourDevice = ({ setStateNew }: Props) => {
                             {/* <Grid3Icon className="mx-3" /> */}
                             <div className="space-y-2 neue">
                                 <p className="text-xl lg:text-[32px] whitespace-nowrap font-semibold leading-snug">Receive Starlink device</p>
-                                <p className="leading-snug font-normal text-base">After the order is confirmed, receive your device in 2-3 working days.</p>
+                                <p className="leading-snug font-normal text-base">After the order is confirmed, device is shipped to you.</p>
                             </div>
                         </div>
                     </div>
