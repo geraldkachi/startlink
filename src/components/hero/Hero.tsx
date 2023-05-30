@@ -42,7 +42,7 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
                     {/* <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32"> */}
                     <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-10 mx-auto text-center  md:py- md:px-10 lg:px-32">
                         <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="animate-text text-transparent bg-clip-text bg-gradient-to-r from-[#1460DD] from-10% via-sky-500 via-70% to-[#1460DD] 10% to-90% whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
-                        <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-2xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. ₦32,680/month with a one-time hardware cost of ₦510,720 only.</p>
+                        <p className="mt-6 mb-8 text-lg leading-6 sm:mb-12 xl:max-w-2xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. ₦32,680/month with a one-time hardware cost of <span className="font-bold">₦510,720</span> only.</p>
                         <div className="flex flex-wrap justify-center">
                             <button onClick={() => setStateNew(prev => !prev)} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 
