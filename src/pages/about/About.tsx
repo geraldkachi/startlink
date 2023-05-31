@@ -27,7 +27,7 @@ const About = forwardRef((props, ref: Ref<HTMLDivElement>) => {
         </div>
 
         <div className="md:col-span-2 flex items-center justify-center">
-          <img src="/aboutpageimg.svg" alt="about" />
+          <img src="/aboutpageimg.svg" className="rounded-xl" alt="about" />
         </div>
       </div>
 
@@ -47,7 +47,7 @@ const About = forwardRef((props, ref: Ref<HTMLDivElement>) => {
       {/* Three Section Box */}
       <section>
         <div className="xl:max-w-3xl pb-10 text-center mx-auto neue">
-          <h1 className="font-semibold leading-[2.688rem] sm:text-[2rem] text-[#283646 ]">Our Values</h1>
+          <h1 className="font-semibold leading-[2.688rem] text-[2rem] text-[#283646 ]">Our Values</h1>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 max-w-7xl mx-auto pt-10">

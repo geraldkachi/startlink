@@ -9,7 +9,7 @@ import Navicon from "../../assets/svg/newnewnavicon.svg"
 interface Props {
     scrollToSection?: () => void | undefined,
 }
-const Navbar = ({scrollToSection}: Props) => {
+const Navbar = ({ scrollToSection }: Props) => {
     const [stateNew, setStateNew] = useState<boolean>(false)
     const navigate = useNavigate()
 
@@ -18,17 +18,15 @@ const Navbar = ({scrollToSection}: Props) => {
         <div className='sm:fixed top-0 sm:top-5 w-full z-50'>
             <div className="  max-w-[1360px] bg-[#ffffff] flex flex-wrap items-center justify-between mx-auto p-4 rounded-lg shadow-sm sm:shadow-sm">
                 <Link to="/" className="flex items-center">
-                   <img src={Navicon} alt="nav" />
+                    <img src={Navicon} alt="nav" />
                 </Link>
 
                 <div className=" sm:flex md:order-2 items-center">
                     {/* <Link to="#contact"> */}
 
-                    <button type="button" onClick={() => navigate('/about')} className={`${ window.location.pathname === '/placeorder' && 'hidden'} sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
-                    <button type="button" onClick={() => {
-                        scrollToSection &&  scrollToSection()
-                        }} className={`${ window.location.pathname === '/placeorder' && 'hidden'} hidden sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
-                        {' '}
+                    <button type="button" onClick={() => navigate('/about')} className={`sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
+                    <button type="button" onClick={() => { scrollToSection && scrollToSection() }} className={`hidden sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>Contact Support </button>
+                    {' '}
                     <button type="button" onClick={() => setStateNew(prev => !prev)} className="hidden sm:flex items-center text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
                         <svg className="ml-3" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_1_322)">

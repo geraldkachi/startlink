@@ -58,10 +58,7 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
                                 </svg>
 
                             </button>
-                            <button onClick={() => {
-                                scrollToSection && scrollToSection()
-                                // setStateNew(true)
-                            }} type="button" className="flex items-center text-[#141313] border-[#141313] border m-2 bg-[#ffffff] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Contact Support</button>
+                            <button onClick={() => scrollToSection && scrollToSection()} type="button" className="flex items-center text-[#141313] border-[#141313] border m-2 bg-[#ffffff] focus:outline-none focus:ring-blue-300 font-medium rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Contact Support</button>
                         </div>
 
                         <div className="flex flex-col items-center justify-center my-3 sm:mt-48">

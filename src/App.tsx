@@ -10,9 +10,11 @@ import About from './pages/about/About';
 const App: React.FC = () => {
   const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
   const refDiv = useRef<HTMLDivElement>(null);
+  const refD = useRef<HTMLDivElement>(null);
 
   const scrollToSection = () => {
-    refDiv.current?.scrollIntoView({ behavior: 'smooth' });
+    refDiv && refDiv.current?.scrollIntoView({ behavior: 'smooth' });
+    refD && refD.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const ref = useRef<QueryClient>();
@@ -36,7 +38,7 @@ const App: React.FC = () => {
         <Suspense fallback={"Loading"}>
           <Routes>
             <Route path='/' element={<Home ref={refDiv} {...{ scrollToSection }} />} />
-            <Route path='/about' element={<About ref={refDiv} />} />
+            <Route path='/about' element={<About ref={refD} />} />
           </Routes>
         </Suspense>
 
