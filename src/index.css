@@ -63,6 +63,9 @@ input[type='radio'] {
 	display: flex;
 	width: 1.45em;
 	height: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 	appearance: none;
 	border-radius:  100%;
 	background: white;
