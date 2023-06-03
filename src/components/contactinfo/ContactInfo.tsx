@@ -169,17 +169,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     }
 
 
-
-
-
-
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
     };
 
     return (
@@ -302,39 +293,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 </div>
 
             </form>
-
-
-
-            {/* <form onSubmit={handleSubmit}>
-                <label>
-                    <input
-                        type="radio"
-                        value="option1"
-                        checked={selectedOption === 'option1'}
-                        onChange={handleOptionChange}
-                    />
-                    Option 1
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        value="option2"
-                        checked={selectedOption === 'option2'}
-                        onChange={handleOptionChange}
-                    />
-                    Option 2
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        value="option3"
-                        checked={selectedOption === 'option3'}
-                        onChange={handleOptionChange}
-                    />
-                    Option 3
-                </label>
-                <button type="submit">Submit</button>
-            </form> */}
         </div>
     )
 }
