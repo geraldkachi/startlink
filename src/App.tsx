@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 
 import Home from './pages/home/Home';
 import About from './pages/about/About';
+import OrderSuccessful from './components/ordersuccessful/OrderSuccessful';
 
 const App: React.FC = () => {
   const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
@@ -39,6 +40,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path='/' element={<Home ref={refDiv} {...{ scrollToSection }} />} />
             <Route path='/about' element={<About ref={refD} />} />
+            <Route path='/success' element={<OrderSuccessful />} />
           </Routes>
         </Suspense>
 

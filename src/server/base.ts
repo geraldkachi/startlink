@@ -3,14 +3,13 @@ import { toast } from 'react-toastify';
 
 const BACKEND_URL = import.meta.env.VITE_API_KEY
 
-// const token = localStorage.getItem('token')
-
 export const instance = () => {
     const instanceHttp = axios.create({
         baseURL: BACKEND_URL,
         timeout: 50000,
         headers: {
             "Content-Type": "application/json",
+            // 'x-ApiKey': 'TEST_API_KEY',
             'x-ApiKey': '9e6395deae0648c2baf823e64799e6dd',
         },
     });

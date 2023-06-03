@@ -63,6 +63,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const costFee = useAuth(state => state.costFee)
     const totalFee = useAuth(state => state.totalFee)
     const shippingFee = useAuth(state => state.shippingFee)
+    const [selectedOption, setSelectedOption] = useState('');
+    console.log(selectedOption, 'selectedOption')
 
     const mutation = useMutation(createPayUrl)
 
@@ -95,35 +97,90 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
     const onFinish = (e: FormEvent) => {
         e.preventDefault()
+        console.log(e, 'eeeeeeeeeeee')
 
-        const values: CreatePayType = {
-            callBackUrl: "https://mywebsite.com/paid",
+        // const values = {
+        //     // @ts-ignore
+        //     radio: e.target["radio-value"].value,
+        // }
+        const sterlingPayment = {
+            // // @ts-ignore
+            // radio: e.target["radio-value"].value,
+            callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
             reference: "unique_ref_buscuit_123",
-            merchantId: 100000000000000,
+        }
+        const spectaPayment: CreatePayType = {
+            callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
+            reference: "unique_ref_buscuit_123",
+            merchantId: import.meta.env.VITE_SPECTA_Merchant_ID,
             description: "Ten cartons of buscuit",
-            amount: 210200.50
+            amount: (Number(((count * costFee) + shippingFee).toFixed(2)))
         }
 
-        console.log(values, 'values')
+        console.log(spectaPayment, 'values')
 
         schema
-            .validate(values)
+            .validate(spectaPayment)
             .then((_val) => {
-                mutation.mutate(values, {
-                    onSuccess: (data) => {
-                        console.log(data, 'data  aa')
-                        toast.success('Payment Url Created Successfully')
-                        setStateSuccess && setStateSuccess(true)
-                    },
-                    onError: (e: unknown) => {
-                        if (e instanceof Error) {
-                            toast.error(e.message)
+                // if ((selectedOption || values?.radio) === "specta") {
+                if ((selectedOption) === "specta") {
+                    mutation.mutate(spectaPayment, {
+                        onSuccess: (data) => {
+                            console.log(data, 'data  aa')
+                            // toast.success('Payment Url Created Successfully')
+                            if (data?.result) {
+                                window.location.href = data?.result
+                                return
+                            }
+                            toast.error('unable to initiate your payment. please try again!')
+                            // setStateSuccess && setStateSuccess(true)
+                        },
+                        onError: (e: unknown) => {
+                            if (e instanceof Error) {
+                                toast.error(e.message)
+                            }
                         }
-                    }
-                });
+                    });
+                }
+
+                // if ((selectedOption || values?.radio) === "sterling") {
+                if ((selectedOption) === "sterling") {
+                    mutation.mutate(sterlingPayment, {
+                        onSuccess: (data) => {
+                            console.log(data, 'data  aa')
+                            // toast.success('Payment Url Created Successfully')
+                            if (data?.result) {
+                                window.location.href = data?.result
+                                return
+                            }
+                            toast.error('unable to initiate your payment. please try again!')
+                            // setStateSuccess && setStateSuccess(true)
+                        },
+                        onError: (e: unknown) => {
+                            if (e instanceof Error) {
+                                toast.error(e.message)
+                            }
+                        }
+                    });
+                }
+
             })
 
     }
+
+
+
+
+
+
+    const handleOptionChange = (event) => {
+        setSelectedOption(event.target.value);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission logic here
+    };
 
     return (
         <div className="p-3">
@@ -202,8 +259,9 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                     <p className="text-[#031744] text-2xl mb-2 font-semibold">Payment Method</p>
                     <p className="font-normal text-xl">Select Payment Method</p>
 
-                    <div className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
-                        <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                    <div onChange={handleOptionChange} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
+                        {/* <input type="radio" value={"sterling"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
+                        <input type="radio" value={"sterling"}  checked={selectedOption === 'sterling'} onChange={handleOptionChange} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -215,8 +273,10 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                             </div>
                         </label>
                     </div>
-                    <div className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
-                        <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+
+                    <div onChange={handleOptionChange} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
+                        {/* <input type="radio" value={"specta"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
+                        <input type="radio" value={"specta"} checked={selectedOption === 'specta'} onChange={handleOptionChange} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -232,7 +292,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
-                        className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between">
+                        className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 
                         <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -242,6 +302,39 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 </div>
 
             </form>
+
+
+
+            {/* <form onSubmit={handleSubmit}>
+                <label>
+                    <input
+                        type="radio"
+                        value="option1"
+                        checked={selectedOption === 'option1'}
+                        onChange={handleOptionChange}
+                    />
+                    Option 1
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="option2"
+                        checked={selectedOption === 'option2'}
+                        onChange={handleOptionChange}
+                    />
+                    Option 2
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        value="option3"
+                        checked={selectedOption === 'option3'}
+                        onChange={handleOptionChange}
+                    />
+                    Option 3
+                </label>
+                <button type="submit">Submit</button>
+            </form> */}
         </div>
     )
 }

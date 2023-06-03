@@ -7,7 +7,7 @@
   font-family: "Manrope", sans-serif;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-family: "Roboto", sans-serif;
-  font-family: 'Neue Haas Grotesk Display Pro', sans-serif;
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
 
   line-height: 1.5;
   font-weight: 400;
@@ -23,7 +23,7 @@
   font-family: "Roboto" !important;
 }
 .neue {
-  font-family: 'Neue Haas Grotesk Display Pro' !important;
+  font-family: "Neue Haas Grotesk Display Pro" !important;
 }
 
 .ant-select-focused .ant-select-selector,
@@ -35,7 +35,7 @@
   border-color: white !important;
   box-shadow: none !important;
 }
-.ant-select-selector{
+.ant-select-selector {
   border-color: white !important;
   /* margin: 30px !important;
   padding: 5px !important; */
@@ -88,3 +88,40 @@ input[type='radio']:checked::after {
 	position: absolute;
 }
 
+ /* input[type="radio"] {
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  background-color: #031744;
+}
+input[type="radio"]:focus {
+  outline: max(2px, 0.15em) solid #031744;
+  outline-offset: max(2px, 0.15em);
+}
+
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #000000;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+} */

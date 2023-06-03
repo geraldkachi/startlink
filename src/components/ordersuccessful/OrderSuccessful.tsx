@@ -1,4 +1,4 @@
-import OrderSuccessIcon from '../../assets/svg/OrderSuccessIcon'
+// import OrderSuccessIcon from '../../assets/svg/OrderSuccessIcon'
 // import SuccessIcon from '../../assets/svg/successIcon.png'
 import NewSuccessIcon from '../../assets/svg/newSucc.svg'
 
