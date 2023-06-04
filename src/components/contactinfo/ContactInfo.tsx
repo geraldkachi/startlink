@@ -250,9 +250,9 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                     <p className="text-[#031744] text-2xl mb-2 font-semibold">Payment Method</p>
                     <p className="font-normal text-xl">Select Payment Method</p>
 
-                    <div onChange={handleOptionChange} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
+                    <div onChange={e => setSelectedOption(e.target.addEventListener(selectedOption, () => null))} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
                         {/* <input type="radio" value={"sterling"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" value={"sterling"}  checked={selectedOption === 'sterling'} onChange={handleOptionChange} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input type="radio" value={"sterling"}  checked={selectedOption === 'sterling'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -265,9 +265,9 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </label>
                     </div>
 
-                    <div onChange={handleOptionChange} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
+                    <div onChange={e => setSelectedOption(e.target.value)} className="neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3">
                         {/* <input type="radio" value={"specta"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" value={"specta"} checked={selectedOption === 'specta'} onChange={handleOptionChange} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input type="radio" value={"specta"} checked={selectedOption === 'specta'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>

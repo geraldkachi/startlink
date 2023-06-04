@@ -4,7 +4,7 @@ import NewSuccessIcon from '../../assets/svg/newSucc.svg'
 
 const OrderSuccessful = () => {
     return (
-        <div className='my-10'>
+        <div className='my-10 px-2'>
             <p className='text-[#031744] text-3xl sm:text-5xl font-semibold p-3'>Order #4343 placed successfully</p>
 
 
