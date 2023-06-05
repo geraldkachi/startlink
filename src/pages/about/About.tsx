@@ -2,11 +2,13 @@ import { Ref, forwardRef } from "react"
 import { Navbar } from "../../components"
 import ContactSection from "../../components/contact-section/ContactSection"
 import Footer from "../../components/navbar/Footer"
-
-const About = forwardRef((props, ref: Ref<HTMLDivElement>) => {
+interface Props {
+  scrollToSectionAbout: () => void
+}
+const About = forwardRef(({ scrollToSectionAbout }: Props, ref: Ref<HTMLDivElement>) => {
   return (
     <>
-      <Navbar />
+      <Navbar {...{ scrollToSectionAbout }} />
 
       <div className="grid md:grid-cols-5 gap-5 max-w-7xl mx-auto pt-10 sm:mt-24 p-4">
 

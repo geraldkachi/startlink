@@ -1,8 +1,28 @@
-import { FormEvent, Ref, forwardRef } from 'react'
+import { FormEvent, Ref, forwardRef, useRef } from 'react'
 
 const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
+    const formRef = useRef(null);
+
+
     const onFinish = (e: FormEvent) => {
         e.preventDefault()
+        const form = e.target;
+        // const form = formRef.current;
+
+        let email = form.elements.email.value;
+        let firstName = form.elements.firstName.value;
+        let phone = form.elements.phone.value;
+        let message = form.elements.message.value;
+
+        const subject = `${firstName} ${email} ${phone}`
+
+        const mailtoUrl = `mailto:${import.meta.env.VITE_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+        window.location.href = mailtoUrl;
+
+
+        // Clear form input values
+        form.reset();
     }
     return (
         <div ref={ref} id="contact">
@@ -44,29 +64,29 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
                         </div>
                     </div>
 
-                    <form onSubmit={onFinish} className='md:col-span-3 rounded-xl p-6 bg-white'>
+                    <form ref={formRef} onSubmit={onFinish} className='md:col-span-3 rounded-xl p-6 bg-white'>
                         <div className="mb-2">
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900">First Name</label>
-                                <input type="text" name='firstName' id="first name" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="text" name='firstName' className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900">Email Address</label>
-                                <input type="email" name='email' id="email" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="email" name='email' className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
                         <div className="mb-2">
                             <div className="mb-2">
                                 <label className="block mb-2 text-sm font-semibold text-gray-900">Phone Number</label>
-                                <input type="tel" name="phone" id="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
+                                <input type="tel" name="phone" className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder="" required />
                             </div>
                         </div>
 
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900">Message</label>
-                            <textarea rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
+                            <textarea name='message' rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
                         </div>
                         <div className="mb-2 text-center">
                             <button type="submit" className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-sem text-sm px-5 py-4 text-center flex items-center justify-center">Send Message</button>

@@ -14,9 +14,22 @@ const App: React.FC = () => {
   const refD = useRef<HTMLDivElement>(null);
 
   const scrollToSection = () => {
+    if (window.location.pathname === '/about') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
     refDiv && refDiv.current?.scrollIntoView({ behavior: 'smooth' });
-    refD && refD.current?.scrollIntoView({ behavior: 'smooth' });
+
   };
+  const scrollToSectionAbout = () => {
+    if (window.location.pathname === '/about') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+    // refD && refD.current?.scrollIntoView({ behavior: 'smooth' })
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
 
   const ref = useRef<QueryClient>();
   const queryClient = new QueryClient({
@@ -39,7 +52,7 @@ const App: React.FC = () => {
         <Suspense fallback={"Loading"}>
           <Routes>
             <Route path='/' element={<Home ref={refDiv} {...{ scrollToSection }} />} />
-            <Route path='/about' element={<About ref={refD} />} />
+            <Route path='/about' element={<About ref={refD} {...{scrollToSectionAbout}} />} />
             <Route path='/success' element={<OrderSuccessful />} />
           </Routes>
         </Suspense>
