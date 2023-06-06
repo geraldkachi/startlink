@@ -99,33 +99,3 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
 })
 
 export default ContactSection
-
-
-
-// return (
-//     <div ref={ref} id="contact">
-//         <div className='bg-[#F9FBFD] pt-10'>
-//             <h1 className="text-5xl leading-none sm:text-5xl xl:max-w-3xl pb-10 text-center mx-auto font-medium neue">Contact Us</h1>
-//             <div className="max-w-2xl mx-auto p-5 bg-[#F2F3F8]">
-//                 <form onSubmit={onFinish}>
-//                     <div className="mb-2">
-//                         <input type="text" name='first name' id="full name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Name" required />
-//                     </div>
-//                     <div className="mb-2">
-//                         <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Email Address" required />
-//                     </div>
-//                     <div className="mb-2">
-//                         <input type="tel" id="phone" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-4 placeholder-[#111113]::placeholder" placeholder="Phone Number" required />
-//                     </div>
-
-//                     <div className="mb-2">
-//                         <textarea rows={6} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Message"></textarea>
-//                     </div>
-//                     <div className="mb-2">
-//                         <button type="submit" className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-4 text-center">Send Message</button>
-//                     </div>
-//                 </form>
-//             </div>
-//         </div>
-//     </div>
-// )
