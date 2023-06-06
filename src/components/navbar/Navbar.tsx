@@ -16,13 +16,17 @@ const Navbar = ({ scrollToSection, scrollToSectionAbout }: Props) => {
     return (
         <div className='sm:fixed top-0 sm:top-5 w-full z-50'>
             <div className="  max-w-[1360px] bg-[#ffffff] flex flex-wrap items-center justify-between mx-auto p-4 rounded-lg shadow-sm sm:shadow-sm">
-                <Link to="/" className="flex items-center">
+                <Link onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} to="/" className="flex items-center">
                     <img src={Navicon} alt="nav" />
                 </Link>
 
                 <div className=" sm:flex md:order-2 items-center">
 
-                    <button type="button" onClick={() => navigate('/about')} className={`sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
+                    <button type="button" onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                        navigate('/about')
+                    }} className={`sm:flex font-medium text-[#000000] bg-[#ffffff] mr-2 sm:mr-10 hover:text-[#454545] focus:outline-none`}>About Us </button>
+
                     <button type="button" onClick={() => {
                         scrollToSection && scrollToSection()
                         scrollToSectionAbout && scrollToSectionAbout()
