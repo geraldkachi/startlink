@@ -10,8 +10,6 @@ import useAuth from "../../hooks/useAuth"
 import { CreatePayType } from "../../../types"
 import { createPayUrl } from "../../server/createPaymenturl"
 
-
-// import Select from 'react-select'
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
     setStateSuccess?: Dispatch<SetStateAction<boolean>>
@@ -103,19 +101,22 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         //     // @ts-ignore
         //     radio: e.target["radio-value"].value,
         // }
-        const sterlingPayment = ""
-        //     any = handleFlutterPayment({
-        //     callback: (response) => {
-        //         console.log(response);
-        //         // Handle successful payment callback
-        //         import.meta.env.VITE_SPECTA_CALLBACKURL
-        //     },
-        //     onClose: () => {
-        //         // console.log('Payment closed');
-        //         toast.error('Payment closed');
-        //         // Handle payment close
-        //     },
-        // });
+        const sterlingPayment =  getpaidSetup({
+            PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
+            custom_title: "Umoyanet Limited",
+            customer_email: "info@umoyanet.com",
+            amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+            currency: "NGN",
+            custom_logo: "",
+            txref: "FLWSECK_TEST527940907e08",
+            txRef: "FLWSECK_TEST527940907e08",
+            country: "NG",
+            payment_options: 'card,banktransfer,ussd',
+            meta: [],
+            //exclude_banks: exclude_banks,
+            onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+            callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+           })
 
         const spectaPayment: CreatePayType = {
             callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
@@ -177,25 +178,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         const newValue = e.target.value; // Store the new value in a variable
         setSelectedOption(newValue); // Update the state with the new value
     };
-
-    var popup = () => getpaidSetup({
-        PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
-        custom_title: "Umoyanet Limited",
-        customer_email: "info@umoyanet.com",
-        amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
-        currency: "NGN",
-        custom_logo: "",
-        txref: "FLWSECK_TEST527940907e08",
-        txRef: "FLWSECK_TEST527940907e08",
-        country: "NG",
-        payment_options: 'card,banktransfer,ussd',
-        meta: [],
-        //exclude_banks: exclude_banks,
-        onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
-        callback: function () {
-            () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL;
-        },
-       })
 
     return (
         <div className="p-3">
@@ -315,8 +297,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
 
                 <div className="mb-2">
-                    <button type="button" disabled={mutation.isLoading}
-                    onClick={() => popup()}
+                    <button type="submit" disabled={mutation.isLoading}
                         // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
                         className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
@@ -333,3 +314,11 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 }
 
 export default ContactInfo
+function getpaidSetup(arg0: {
+    PBFPubKey: string; custom_title: string; customer_email: string; amount: number; currency: string; custom_logo: string; txref: string; txRef: string; country: string; payment_options: string; meta: never[];
+    //exclude_banks: exclude_banks,
+    onclose: () => any; callback: () => any;
+}) {
+    throw new Error("Function not implemented.");
+}
+
