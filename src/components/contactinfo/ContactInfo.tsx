@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 
 import { Helmet } from 'react-helmet';
 import { useMutation } from "react-query"
-import { useFlutterwave } from 'flutterwave-react-v3';
 import { Dispatch, FormEvent, SetStateAction, useState } from "react"
 
 import useAuth from "../../hooks/useAuth"
@@ -69,35 +68,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const totalFee = useAuth(state => state.totalFee)
     const shippingFee = useAuth(state => state.shippingFee)
     const [selectedOption, setSelectedOption] = useState('');
-    // console.log(selectedOption, 'selectedOption')
-
-
-    const config = {
-        public_key: 'FLWPUBK_TEST-7e07d3bfb800128b7e7b3503f10c32eb-X',
-        tx_ref: Date.now(),
-        amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
-        currency: 'NGN',
-        payment_options: 'card,mobilemoney,banktransfer,ussd',
-        redirect_url: import.meta.env.VITE_SPECTA_CALLBACKURL,
-        customer: {
-            email: 'fitzgeraldkachi@gmail.com',
-            phone_number: '09039278115',
-            name: 'John Doe',
-        },
-        meta: {
-            consumer_id: import.meta.env.VITE_Sterling_Pay_Merchant_ID,
-            consumer_mac: "92a3-912ba-1192a",
-        },
-        customizations: {
-            title: 'UmoyaNet',
-            description: 'Payment for items',
-            logo: '',
-        },
-    };
-
-    const handleFlutterPayment = useFlutterwave(config);
-
-
     const mutation = useMutation(createPayUrl)
 
 
@@ -133,18 +103,19 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         //     // @ts-ignore
         //     radio: e.target["radio-value"].value,
         // }
-        const sterlingPayment: any = handleFlutterPayment({
-            callback: (response) => {
-                console.log(response);
-                // Handle successful payment callback
-                import.meta.env.VITE_SPECTA_CALLBACKURL
-            },
-            onClose: () => {
-                // console.log('Payment closed');
-                toast.error('Payment closed');
-                // Handle payment close
-            },
-        });
+        const sterlingPayment = ""
+        //     any = handleFlutterPayment({
+        //     callback: (response) => {
+        //         console.log(response);
+        //         // Handle successful payment callback
+        //         import.meta.env.VITE_SPECTA_CALLBACKURL
+        //     },
+        //     onClose: () => {
+        //         // console.log('Payment closed');
+        //         toast.error('Payment closed');
+        //         // Handle payment close
+        //     },
+        // });
 
         const spectaPayment: CreatePayType = {
             callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
@@ -206,6 +177,25 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         const newValue = e.target.value; // Store the new value in a variable
         setSelectedOption(newValue); // Update the state with the new value
     };
+
+    var popup = () => getpaidSetup({
+        PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
+        custom_title: "Umoyanet Limited",
+        customer_email: "info@umoyanet.com",
+        amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+        currency: "NGN",
+        custom_logo: "",
+        txref: "FLWSECK_TEST527940907e08",
+        txRef: "FLWSECK_TEST527940907e08",
+        country: "NG",
+        payment_options: 'card,banktransfer,ussd',
+        meta: [],
+        //exclude_banks: exclude_banks,
+        onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+        callback: function () {
+            () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL;
+        },
+       })
 
     return (
         <div className="p-3">
@@ -318,42 +308,15 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 {/* Other JSX code */}
 
                 <Helmet>
-                    <script type="text/javascript" src="https://checkout.flutterwave.com/v3.js">
-                        {`
-            // Your inline script code goes here
-            ${function makePayment() {
-                                ({
-                                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
-                                    tx_ref: "titanic-48981487343MDI0NzMx",
-                                    amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
-                                    currency: "NGN",
-                                    payment_options: "card, banktransfer, ussd",
-                                    // redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
-                                    redirect_url: import.meta.env.VITE_SPECTA_CALLBACKURL,
-                                    meta: {
-                                        consumer_id: import.meta.env.VITE_Sterling_Pay_Merchant_ID,
-                                        consumer_mac: "92a3-912ba-1192a",
-                                    },
-                                    customer: {
-                                        email: 'fitzgeraldkachi@gmail.com',
-                                        phone_number: '09039278115',
-                                        name: 'John Doe',
-                                    },
-                                    customizations: {
-                                        title: "UmoyaNet",
-                                        description: "Payment for items",
-                                        logo: "",
-                                    },
-                                });
-                            }
-                            }
-          `}
+                    <script type="text/javascript" src="https://sterlingcheckout.herokuapp.com//inline-rave.js?">
+
                     </script>
                 </Helmet>
 
 
                 <div className="mb-2">
-                    <button type="submit" disabled={mutation.isLoading}
+                    <button type="button" disabled={mutation.isLoading}
+                    onClick={() => popup()}
                         // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
                         className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
