@@ -34,13 +34,13 @@ const About = forwardRef(({ scrollToSectionAbout }: Props, ref: Ref<HTMLDivEleme
       </div>
 
 
-      <div className="grid md:grid-cols-2 gap-5 max-w-7xl mx-auto pt-10 sm:mt-24 p-4 sm:p-14 neue bg-[url(/markabou.svg)] bg-center bg-cover bg-no-repeat bg-[#2568FF] rounded-3xl text-white my-20">
-        <div className="flex flex-col justify-start flex-1 p-6">
+      <div className="relative grid md:grid-cols-2 gap-5 max-w-[1200px] mx-auto pt-10 sm:mt-24 p-4 sm:p-14 neue bg-[url(/markabout.svg)] bg-center bg-cover bg-no-repeat bg-[#2568FF] rounded-3xl text-white my-20 ">
+        <div className="flex flex-col justify-start flex-1 p-6 z-10">
           <span className="text-[2rem] uppercase font-semibold">Our Mission</span>
           <p className="my-6 text-xl font-medium">Our mission at Umoyanet is to empower connectivity beyond borders. We are dedicated to bridging the digital divide and connecting people to the boundless opportunities of the global economy. Through our innovative solutions, we aim to make a meaningful difference in the lives of individuals, businesses, and communities.</p>
         </div>
 
-        <div className="flex flex-col justify-start flex-1 p-6">
+        <div className="flex flex-col justify-start flex-1 p-6 z-10">
           <span className="text-[2rem] uppercase font-semibold">Our Vision</span>
           <p className="my-6 text-xl font-medium">Our vision is to be the driving force behind universal connectivity. We envision a world where everyone has equal access to high-speed internet, regardless of their geographical location. By leveraging technology, fostering partnerships, and embracing innovation, we strive to create a more inclusive and connected digital future..</p>
         </div>

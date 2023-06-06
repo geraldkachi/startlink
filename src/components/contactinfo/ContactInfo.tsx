@@ -1,11 +1,16 @@
 import * as yup from "yup";
-import { Dispatch, FormEvent, SetStateAction, useState } from "react"
-import useAuth from "../../hooks/useAuth"
 import { Select } from "antd"
-import { createPayUrl } from "../../server/createPaymenturl"
-import { useMutation } from "react-query"
-import { CreatePayType } from "../../../types"
 import { toast } from "react-toastify";
+
+import { Helmet } from 'react-helmet';
+import { useMutation } from "react-query"
+import { useFlutterwave } from 'flutterwave-react-v3';
+import { Dispatch, FormEvent, SetStateAction, useState } from "react"
+
+import useAuth from "../../hooks/useAuth"
+import { CreatePayType } from "../../../types"
+import { createPayUrl } from "../../server/createPaymenturl"
+
 
 // import Select from 'react-select'
 interface Props {
@@ -64,7 +69,34 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const totalFee = useAuth(state => state.totalFee)
     const shippingFee = useAuth(state => state.shippingFee)
     const [selectedOption, setSelectedOption] = useState('');
-    console.log(selectedOption, 'selectedOption')
+    // console.log(selectedOption, 'selectedOption')
+
+
+    const config = {
+        public_key: 'FLWPUBK_TEST-7e07d3bfb800128b7e7b3503f10c32eb-X',
+        tx_ref: Date.now(),
+        amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+        currency: 'NGN',
+        payment_options: 'card,mobilemoney,banktransfer,ussd',
+        redirect_url: import.meta.env.VITE_SPECTA_CALLBACKURL,
+        customer: {
+            email: 'fitzgeraldkachi@gmail.com',
+            phone_number: '09039278115',
+            name: 'John Doe',
+        },
+        meta: {
+            consumer_id: import.meta.env.VITE_Sterling_Pay_Merchant_ID,
+            consumer_mac: "92a3-912ba-1192a",
+        },
+        customizations: {
+            title: 'UmoyaNet',
+            description: 'Payment for items',
+            logo: '',
+        },
+    };
+
+    const handleFlutterPayment = useFlutterwave(config);
+
 
     const mutation = useMutation(createPayUrl)
 
@@ -97,18 +129,23 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
     const onFinish = (e: FormEvent) => {
         e.preventDefault()
-        console.log(e, 'eeeeeeeeeeee')
-
         // const values = {
         //     // @ts-ignore
         //     radio: e.target["radio-value"].value,
         // }
-        const sterlingPayment = {
-            // // @ts-ignore
-            // radio: e.target["radio-value"].value,
-            callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
-            reference: "unique_ref_buscuit_123",
-        }
+        const sterlingPayment: any = handleFlutterPayment({
+            callback: (response) => {
+                console.log(response);
+                // Handle successful payment callback
+                import.meta.env.VITE_SPECTA_CALLBACKURL
+            },
+            onClose: () => {
+                // console.log('Payment closed');
+                toast.error('Payment closed');
+                // Handle payment close
+            },
+        });
+
         const spectaPayment: CreatePayType = {
             callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
             reference: "unique_ref_buscuit_123",
@@ -117,23 +154,19 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
             amount: (Number(((count * costFee) + shippingFee).toFixed(2)))
         }
 
-        console.log(spectaPayment, 'values')
-
         schema
-            .validate(spectaPayment)
+            .validate(selectedOption === "specta" ? spectaPayment : sterlingPayment)
             .then((_val) => {
                 // if ((selectedOption || values?.radio) === "specta") {
                 if ((selectedOption) === "specta") {
                     mutation.mutate(spectaPayment, {
                         onSuccess: (data) => {
                             console.log(data, 'data  aa')
-                            // toast.success('Payment Url Created Successfully')
                             if (data?.result) {
                                 window.location.href = data?.result
                                 return
                             }
                             toast.error('unable to initiate your payment. please try again!')
-                            // setStateSuccess && setStateSuccess(true)
                         },
                         onError: (e: unknown) => {
                             if (e instanceof Error) {
@@ -253,7 +286,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                     <div onChange={handleOptionChange} className={`${selectedOption === "sterling" ? "border-[#031744]" : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
                         {/* <input type="radio" value={"sterling"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" value={"sterling"}  checked={selectedOption === 'sterling'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input type="radio" value={"sterling"} checked={selectedOption === 'sterling'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -282,8 +315,46 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 </div>
 
 
+                {/* Other JSX code */}
+
+                <Helmet>
+                    <script type="text/javascript" src="https://checkout.flutterwave.com/v3.js">
+                        {`
+            // Your inline script code goes here
+            ${function makePayment() {
+                                ({
+                                    public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+                                    tx_ref: "titanic-48981487343MDI0NzMx",
+                                    amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+                                    currency: "NGN",
+                                    payment_options: "card, banktransfer, ussd",
+                                    // redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+                                    redirect_url: import.meta.env.VITE_SPECTA_CALLBACKURL,
+                                    meta: {
+                                        consumer_id: import.meta.env.VITE_Sterling_Pay_Merchant_ID,
+                                        consumer_mac: "92a3-912ba-1192a",
+                                    },
+                                    customer: {
+                                        email: 'fitzgeraldkachi@gmail.com',
+                                        phone_number: '09039278115',
+                                        name: 'John Doe',
+                                    },
+                                    customizations: {
+                                        title: "UmoyaNet",
+                                        description: "Payment for items",
+                                        logo: "",
+                                    },
+                                });
+                            }
+                            }
+          `}
+                    </script>
+                </Helmet>
+
+
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
+                        // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
                         className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 

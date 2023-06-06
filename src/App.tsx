@@ -22,11 +22,11 @@ const App: React.FC = () => {
 
   };
   const scrollToSectionAbout = () => {
-    if (window.location.pathname === '/about') {
+    if (window.location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       return
     }
-    // refD && refD.current?.scrollIntoView({ behavior: 'smooth' })
+    refD && refD.current?.scrollIntoView({ behavior: 'smooth' })
     // window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
