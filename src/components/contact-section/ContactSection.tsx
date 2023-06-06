@@ -86,7 +86,7 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
 
                         <div className="mb-2">
                             <label className="block mb-2 text-sm font-semibold text-gray-900">Message</label>
-                            <textarea name='message' rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
+                            <textarea required name='message' rows={9} className="shadow-sm rounded-lg bg-gray-50 border border-[#D9DDE3] text-gray-900 text-sm block w-full p-3 placeholder-[#111113]::placeholder" placeholder=""></textarea>
                         </div>
                         <div className="mb-2 text-center">
                             <button type="submit" className="text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-sem text-sm px-5 py-4 text-center flex items-center justify-center">Send Message</button>
