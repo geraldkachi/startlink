@@ -4,7 +4,7 @@ const ContactSection = forwardRef((props, ref: Ref<HTMLDivElement>) => {
     const formRef = useRef(null);
 
 
-    const onFinish = (e: FormEvent) => {
+    const onFinish = (e: FormEvent | any) => {
         e.preventDefault()
         const form = e.target;
         // const form = formRef.current;
