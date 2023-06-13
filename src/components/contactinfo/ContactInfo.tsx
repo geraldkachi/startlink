@@ -2,13 +2,13 @@ import * as yup from "yup";
 import { Select } from "antd"
 import { toast } from "react-toastify";
 
-import { Helmet } from 'react-helmet';
 import { useMutation } from "react-query"
 import { Dispatch, FormEvent, SetStateAction, useState } from "react"
 
 import useAuth from "../../hooks/useAuth"
 import { CreatePayType } from "../../../types"
 import { createPayUrl } from "../../server/createPaymenturl"
+import { Helmet } from "react-helmet";
 
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
@@ -61,6 +61,7 @@ let schema = yup.object().shape({
 
 const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const [state, setState] = useState()
+    const [loading, setLoading] = useState(false)
     const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
     const totalFee = useAuth(state => state.totalFee)
@@ -93,30 +94,35 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     //     }),
     //     singleValue: (defaultStyles) => ({ ...defaultStyles, color: "#fff" }),
     //   };
-
-
     const onFinish = (e: FormEvent) => {
         e.preventDefault()
         // const values = {
         //     // @ts-ignore
         //     radio: e.target["radio-value"].value,
         // }
-        const sterlingPayment: any =  getpaidSetup({
-            PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
-            custom_title: "Umoyanet Limited",
-            customer_email: "info@umoyanet.com",
-            amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
-            currency: "NGN",
-            custom_logo: "",
-            txref: "FLWSECK_TEST527940907e08",
-            txRef: "FLWSECK_TEST527940907e08",
-            country: "NG",
-            payment_options: 'card,banktransfer,ussd',
-            meta: [],
-            //exclude_banks: exclude_banks,
-            onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
-            callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
-           })
+        if (selectedOption === "sterling") {
+            console.log('start')
+            setLoading(true)
+            // @ts-ignore
+            getpaidSetup({
+                PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
+                custom_title: "Umoyanet Limited",
+                customer_email: "info@umoyanet.com",
+                amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+                currency: "NGN",
+                custom_logo: "",
+                txref: "FLWSECK_TEST527940907e08",
+                txRef: "FLWSECK_TEST527940907e08",
+                country: "NG",
+                payment_options: 'card,banktransfer,ussd',
+                meta: [],
+                //exclude_banks: exclude_banks,
+                onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+                callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+            })
+            console.log("finish")
+
+        }
 
         const spectaPayment: CreatePayType = {
             callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
@@ -127,6 +133,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         }
 
         schema
+            // .validate((selectedOption) === "specta" ? spectaPayment : sterlingPayment)
             .validate(spectaPayment)
             .then((_val) => {
                 // if ((selectedOption || values?.radio) === "specta") {
@@ -149,38 +156,42 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 }
 
                 // if ((selectedOption || values?.radio) === "sterling") {
-                if ((selectedOption) === "sterling") {
-                    mutation.mutate(sterlingPayment, {
-                        onSuccess: (data) => {
-                            console.log(data, 'data  aa')
-                            // toast.success('Payment Url Created Successfully')
-                            if (data?.result) {
-                                window.location.href = data?.result
-                                return
-                            }
-                            toast.error('unable to initiate your payment. please try again!')
-                            // setStateSuccess && setStateSuccess(true)
-                        },
-                        onError: (e: unknown) => {
-                            if (e instanceof Error) {
-                                toast.error(e.message)
-                            }
-                        }
-                    });
-                }
+                // if ((selectedOption) === "sterling") {
+                //     mutation.mutate(sterlingPayment, {
+                //         onSuccess: (data) => {
+                //             console.log(data, 'data  aa')
+                //             // toast.success('Payment Url Created Successfully')
+                //             if (data?.result) {
+                //                 window.location.href = data?.result
+                //                 return
+                //             }
+                //             toast.error('unable to initiate your payment. please try again!')
+                //             // setStateSuccess && setStateSuccess(true)
+                //         },
+                //         onError: (e: unknown) => {
+                //             if (e instanceof Error) {
+                //                 toast.error(e.message)
+                //             }
+                //         }
+                //     });
+                // }
 
             })
 
     }
 
 
-    const handleOptionChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
+    const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value; // Store the new value in a variable
         setSelectedOption(newValue); // Update the state with the new value
     };
 
     return (
         <div className="p-3">
+            <Helmet>
+                <script type="text/javascript" src="https://sterlingcheckout.herokuapp.com//inline-rave.js?" />
+                <script src="https://checkout.flutterwave.com/v3.js"></script>
+            </Helmet>
             <p className="text-2xl font-semibold my-5 neue">Contact Information</p>
             <form className='' onSubmit={onFinish}>
                 <div className="grid grid-cols-2 gap-4">
@@ -273,7 +284,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                     <div onChange={handleOptionChange} className={`${selectedOption === "specta" ? "border-[#031744]" : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
                         {/* <input type="radio" value={"specta"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" value={"specta"} checked={selectedOption === 'specta'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input type="radio" required value={"specta"} checked={selectedOption === 'specta'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -287,19 +298,10 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 </div>
 
 
-                {/* Other JSX code */}
-
-                <Helmet>
-                    <script type="text/javascript" src="https://sterlingcheckout.herokuapp.com//inline-rave.js?">
-
-                    </script>
-                </Helmet>
-
-
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
                         // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
-                        className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
+                        className={`${(mutation.isLoading || loading) && 'bg-slate-500'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 
                         <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -314,11 +316,11 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 }
 
 export default ContactInfo
-function getpaidSetup(arg0: {
-    PBFPubKey: string; custom_title: string; customer_email: string; amount: number; currency: string; custom_logo: string; txref: string; txRef: string; country: string; payment_options: string; meta: never[];
-    //exclude_banks: exclude_banks,
-    onclose: () => any; callback: () => any;
-}) {
-    throw new Error("Function not implemented.");
-}
+// function getpaidSetup(arg0: {
+//     PBFPubKey: string; custom_title: string; customer_email: string; amount: number; currency: string; custom_logo: string; txref: string; txRef: string; country: string; payment_options: string; meta: never[];
+//     //exclude_banks: exclude_banks,
+//     onclose: () => any; callback: () => any;
+// }) {
+//     throw new Error("Function not implemented.");
+// }
 
