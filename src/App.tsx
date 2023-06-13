@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import OrderSuccessful from './components/ordersuccessful/OrderSuccessful';
+import { Helmet } from 'react-helmet';
 
 const App: React.FC = () => {
   const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
@@ -47,12 +48,16 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <script type="text/javascript" src="https://sterlingcheckout.herokuapp.com//inline-rave.js?" />
+        <script src="https://checkout.flutterwave.com/v3.js"></script>
+      </Helmet>
       <QueryClientProvider client={ref.current}>
         <ToastContainer />
         <Suspense fallback={"Loading"}>
           <Routes>
             <Route path='/' element={<Home ref={refDiv} {...{ scrollToSection }} />} />
-            <Route path='/about' element={<About ref={refD} {...{scrollToSectionAbout}} />} />
+            <Route path='/about' element={<About ref={refD} {...{ scrollToSectionAbout }} />} />
             <Route path='/success' element={<OrderSuccessful />} />
           </Routes>
         </Suspense>
