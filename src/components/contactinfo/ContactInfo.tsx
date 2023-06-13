@@ -300,7 +300,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
-                        // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
                         className={`${(mutation.isLoading || loading) && 'bg-slate-500'} text-white w-full bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 
