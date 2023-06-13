@@ -67,6 +67,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     const shippingFee = useAuth(state => state.shippingFee)
     const [selectedOption, setSelectedOption] = useState('');
     const mutation = useMutation(createPayUrl)
+    console.log(selectedOption, 'selectedOption')
 
 
     const formatKoboAmountForDisplay = (amount: number): string => {
@@ -101,22 +102,27 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         //     // @ts-ignore
         //     radio: e.target["radio-value"].value,
         // }
-        const sterlingPayment =  getpaidSetup({
-            PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
-            custom_title: "Umoyanet Limited",
-            customer_email: "info@umoyanet.com",
-            amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
-            currency: "NGN",
-            custom_logo: "",
-            txref: "FLWSECK_TEST527940907e08",
-            txRef: "FLWSECK_TEST527940907e08",
-            country: "NG",
-            payment_options: 'card,banktransfer,ussd',
-            meta: [],
-            //exclude_banks: exclude_banks,
-            onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
-            callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
-           })
+
+        // if (selectedOption === "sterling") {
+            const sterlingPayment: any = getpaidSetup({
+                PBFPubKey: "FLWPUBK_TEST-92193f83194f12fd9a3b8793c42cbc6c-X",
+                custom_title: "Umoyanet Limited",
+                customer_email: "info@umoyanet.com",
+                amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+                currency: "NGN",
+                custom_logo: "",
+                txref: "FLWSECK_TEST527940907e08",
+                txRef: "FLWSECK_TEST527940907e08",
+                country: "NG",
+                payment_options: 'card,banktransfer,ussd',
+                meta: [],
+                //exclude_banks: exclude_banks,
+                onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+                callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+            })
+
+            sterlingPayment()
+
 
         const spectaPayment: CreatePayType = {
             callBackUrl: import.meta.env.VITE_SPECTA_CALLBACKURL,
@@ -127,7 +133,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
         }
 
         schema
-            .validate(selectedOption === "specta" ? spectaPayment : sterlingPayment)
+            .validate(spectaPayment)
             .then((_val) => {
                 // if ((selectedOption || values?.radio) === "specta") {
                 if ((selectedOption) === "specta") {
@@ -174,7 +180,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
     }
 
 
-    const handleOptionChange = (e) => {
+    const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value; // Store the new value in a variable
         setSelectedOption(newValue); // Update the state with the new value
     };
@@ -298,7 +304,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
-                        // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
                         className={`${mutation.isLoading && 'bg-blue-300'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 
