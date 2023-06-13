@@ -301,7 +301,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 <div className="mb-2">
                     <button type="submit" disabled={mutation.isLoading}
                         // onClick={()=> window.location.href = "https://sterlingcheckout.herokuapp.com//inline-rave.js"}
-                        className={`${(mutation.isLoading || loading) && 'bg-slate-500'} text-white w-full bg-[#2568FF] hover:bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
+                        className={`${(mutation.isLoading || loading) && 'bg-slate-500'} text-white w-full bg-[#2568FF] rounded-lg focus:outline-none font-semibold text-sm sm:text-xl px-5 py-4 text-center flex items-center justify-between`}>
                         <span>Checkout</span>
 
                         <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
