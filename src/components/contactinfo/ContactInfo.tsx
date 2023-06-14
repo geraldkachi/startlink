@@ -117,7 +117,7 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 payment_options: 'card,banktransfer,ussd',
                 meta: [],
                 //exclude_banks: exclude_banks,
-                onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
+                onclose: () => window.location.href = import.meta.env.VITE_SPECTA_CLOSE,
                 callback: () => window.location.href = import.meta.env.VITE_SPECTA_CALLBACKURL,
             })
             console.log("finish")
