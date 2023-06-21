@@ -163,7 +163,6 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                 toast.error(err.message)
             })
 
-
     }
 
 
