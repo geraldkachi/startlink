@@ -3,7 +3,7 @@ import { Select } from "antd"
 import { toast } from "react-toastify";
 
 import { useMutation } from "react-query"
-import { Dispatch, FormEvent, SetStateAction, useState } from "react"
+import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react"
 
 import useAuth from "../../hooks/useAuth"
 import { CreatePayType } from "../../../types"
@@ -55,16 +55,19 @@ const rolesOption = [
 ];
 
 let schema = yup.object().shape({
+    state: yup.string().required()
     // email: yup.string(),
     // password: yup.string().required("Enter a valid password").min(6).nullable(),
 });
 
 const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
+    const ref = useRef<HTMLInputElement>(null);
+    const refS = useRef<HTMLInputElement>(null);
     const [state, setState] = useState()
     const [loading, setLoading] = useState(false)
     const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
-    const totalFee = useAuth(state => state.totalFee)
+    // const totalFee = useAuth(state => state.totalFee)
     const shippingFee = useAuth(state => state.shippingFee)
     const [selectedOption, setSelectedOption] = useState('');
     const mutation = useMutation(createPayUrl)
@@ -129,7 +132,8 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
             reference: "unique_ref_buscuit_123",
             merchantId: import.meta.env.VITE_SPECTA_Merchant_ID,
             description: "Ten cartons of buscuit",
-            amount: (Number(((count * costFee) + shippingFee).toFixed(2)))
+            amount: (Number(((count * costFee) + shippingFee).toFixed(2))),
+            state
         }
 
         schema
@@ -154,37 +158,15 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         }
                     });
                 }
-
-                // if ((selectedOption || values?.radio) === "sterling") {
-                // if ((selectedOption) === "sterling") {
-                //     mutation.mutate(sterlingPayment, {
-                //         onSuccess: (data) => {
-                //             console.log(data, 'data  aa')
-                //             // toast.success('Payment Url Created Successfully')
-                //             if (data?.result) {
-                //                 window.location.href = data?.result
-                //                 return
-                //             }
-                //             toast.error('unable to initiate your payment. please try again!')
-                //             // setStateSuccess && setStateSuccess(true)
-                //         },
-                //         onError: (e: unknown) => {
-                //             if (e instanceof Error) {
-                //                 toast.error(e.message)
-                //             }
-                //         }
-                //     });
-                // }
-
             })
+            .catch((err) => {
+                toast.error(err.message)
+            })
+
 
     }
 
 
-    const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = e.target.value; // Store the new value in a variable
-        setSelectedOption(newValue); // Update the state with the new value
-    };
 
     return (
         <div className="p-3">
@@ -267,9 +249,9 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                     <p className="text-[#031744] text-2xl mb-2 font-semibold">Payment Method</p>
                     <p className="font-normal text-xl">Select Payment Method</p>
 
-                    <div onChange={handleOptionChange} className={`${selectedOption === "sterling" ? "border-[#031744]" : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
+                    <div onClick={() => refS.current?.click()} className={`${selectedOption === "sterling" ? "border-blue-900 -[#031744] " : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
                         {/* <input type="radio" value={"sterling"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" value={"sterling"} checked={selectedOption === 'sterling'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input ref={refS} type="radio" value={"sterling"} checked={selectedOption === 'sterling'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-1" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -282,9 +264,9 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
                         </label>
                     </div>
 
-                    <div onChange={handleOptionChange} className={`${selectedOption === "specta" ? "border-[#031744]" : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
+                    <div onClick={() => ref.current?.click()} className={`${selectedOption === "specta" ? "border-blue-900" : ""} neue flex items-center cursor-pointer pl-4 border border-[#D9DDE3] hover:border-[#031744] rounded-lg my-3`}>
                         {/* <input type="radio" value={"specta"} name="radio-value" className="cursor-pointer w-4 h-4 border-[#D9DDE3]" /> */}
-                        <input type="radio" required value={"specta"} checked={selectedOption === 'specta'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
+                        <input {...{ ref }} type="radio" required value={"specta"} checked={selectedOption === 'specta'} onChange={e => setSelectedOption(e.target.value)} className="cursor-pointer w-4 h-4 border-[#D9DDE3]" />
                         <label htmlFor="bordered-radio-2" className="w-full py-2 mx-4 text-sm font-medium text-gray-900 cursor-pointer">
                             <div className="flex items-center justify-between text-[#003E51]">
                                 <div>
@@ -315,11 +297,5 @@ const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
 }
 
 export default ContactInfo
-// function getpaidSetup(arg0: {
-//     PBFPubKey: string; custom_title: string; customer_email: string; amount: number; currency: string; custom_logo: string; txref: string; txRef: string; country: string; payment_options: string; meta: never[];
-//     //exclude_banks: exclude_banks,
-//     onclose: () => any; callback: () => any;
-// }) {
-//     throw new Error("Function not implemented.");
-// }
+
 

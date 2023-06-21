@@ -4,4 +4,5 @@ export interface CreatePayType{
     merchantId: string | number,
     description: string,
     amount: string | number
+    state?: string
 }
