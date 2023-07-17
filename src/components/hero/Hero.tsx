@@ -1,21 +1,23 @@
-import LeftIocnHero from '../../assets/svg/LeftIocnHero'
-import RightIconHero from '../../assets/svg/RightIconHero'
 // import Grid2Icon from '../../assets/svg/Grid2Icon'
 // import Grid1Icon from '../../assets/svg/Grid1Icon'
 // import Grid3Icon from '../../assets/svg/Grid3Icon'
-import Footer from '../navbar/Footer'
-// import CompanyList from './CompanyList'
-// import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
-import GlowImage from '../../assets/svg/glow.png'
 import { Modal } from "antd";
 import { Ref, forwardRef, useState } from 'react'
-import PlaceOrder from '../placeorder/PlaceOrder'
-import WhyStarlink from '../why-starlink/WhyStarlink'
+// import CompanyList from './CompanyList'
+// import GlowHeroIcon from '../../assets/svg/GlowHeroIcon'
+import Footer from '../navbar/Footer'
+import useAuth from '../../hooks/useAuth';
 import OurClient from '../our-client/OurClient'
-import SimpleSelf from '../simple-self/SimpleSelf'
-import FinancialPartners from '../financial-partners/FinancialPartners'
+import GlowImage from '../../assets/svg/glow.png'
+import PlaceOrder from '../placeorder/PlaceOrder'
 import YourDevice from '../your-device/YourDevice'
+import SimpleSelf from '../simple-self/SimpleSelf'
+import WhyStarlink from '../why-starlink/WhyStarlink'
+import LeftIocnHero from '../../assets/svg/LeftIocnHero'
+import RightIconHero from '../../assets/svg/RightIconHero'
 import ContactSection from '../contact-section/ContactSection'
+import FinancialPartners from '../financial-partners/FinancialPartners'
+import { formatKoboAmountForDisplay } from '../../utils/reUseableFync';
 
 interface Props {
     scrollToSection?: () => void
@@ -23,8 +25,7 @@ interface Props {
 
 const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) => {
     const [stateNew, setStateNew] = useState<boolean>(false)
-
-
+    const costFee = useAuth(state => state.costFee)
 
     return (
         <div className="sm:mt-20">
@@ -42,7 +43,7 @@ const Hero = forwardRef(({ scrollToSection }: Props, ref: Ref<HTMLDivElement>) =
                     {/* <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32"> */}
                     <div className="max-w-7xl  flex flex-col items-center px-4 py-10 pb-10 mx-auto text-center  md:py- md:px-10 lg:px-32">
                         <h1 className="text-5xl font-semibold leading-none sm:text-7xl xl:max-w-3xl neue">Enterprise reseller of <span className="animate-text text-transparent bg-clip-text bg-gradient-to-r from-[#1460DD] from-10% via-sky-500 via-70% to-[#1460DD] 10% to-90% whitespace-nowrap">Starlink Kit</span> in Nigeria</h1>
-                        <p className="mt-6 mb-8 text-lg leading-6 sm:mb-12 xl:max-w-2xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. <span className="font-bold">₦32,680</span>/month with a one-time hardware cost of <span className="font-bold">₦510,720</span> only.</p>
+                        <p className="mt-6 mb-8 text-lg leading-6 sm:mb-12 xl:max-w-2xl">High-speed, low-latency broadband internet in remote and rural locations across the globe. <span className="font-bold">₦32,680</span>/month with a one-time hardware cost of <span className="font-bold">{formatKoboAmountForDisplay(costFee)}</span> only.</p>
                         <div className="flex flex-wrap justify-center">
                             <button onClick={() => setStateNew(prev => !prev)} type="button" className="flex items-center m-2 text-white bg-[#2568FF] focus:outline-none focus:ring-blue-300 font-semibold rounded-md sm:rounded-lg text-sm px-6 sm:py-3 py-2 text-center mr-3 md:mr-0">Place an order
 

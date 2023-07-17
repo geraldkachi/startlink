@@ -2,6 +2,7 @@ import { Modal } from "antd"
 import { Dispatch, SetStateAction, useState } from "react"
 // import Image from "../../assets/svg/conimg.png"
 import useAuth from "../../hooks/useAuth"
+import { formatKoboAmountForDisplay } from "../../utils/reUseableFync"
 import ContactInfo from "../contactinfo/ContactInfo"
 import OrderSuccessful from "../ordersuccessful/OrderSuccessful"
 
@@ -14,10 +15,6 @@ const PlaceOrder = ({ setStateNew }: Props) => {
   const [stateSuccess, setStateSuccess] = useState<boolean>(false)
   const count = useAuth(state => state.count)
   const costFee = useAuth(state => state.costFee)
-
-  const formatKoboAmountForDisplay = (amount: number): string => {
-    return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
-  };
   const increaseCount = useAuth((state) => state.increaseCount)
   const decreaseCount = useAuth((state) => state.decreaseCount)
 

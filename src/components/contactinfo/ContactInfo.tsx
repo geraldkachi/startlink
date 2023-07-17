@@ -1,14 +1,14 @@
 import * as yup from "yup";
 import { Select } from "antd"
+import { Helmet } from "react-helmet";
 import { toast } from "react-toastify";
-
 import { useMutation } from "react-query"
 import { Dispatch, FormEvent, SetStateAction, useRef, useState } from "react"
 
 import useAuth from "../../hooks/useAuth"
 import { CreatePayType } from "../../../types"
 import { createPayUrl } from "../../server/createPaymenturl"
-import { Helmet } from "react-helmet";
+import { formatKoboAmountForDisplay } from "../../utils/reUseableFync";
 
 interface Props {
     setStateNew?: Dispatch<SetStateAction<boolean>>
@@ -61,21 +61,17 @@ let schema = yup.object().shape({
 });
 
 const ContactInfo = ({ setStateNew, setStateSuccess }: Props) => {
+    const [state, setState] = useState()
+    const mutation = useMutation(createPayUrl)
+    const count = useAuth(state => state.count)
     const ref = useRef<HTMLInputElement>(null);
     const refS = useRef<HTMLInputElement>(null);
-    const [state, setState] = useState()
     const [loading, setLoading] = useState(false)
-    const count = useAuth(state => state.count)
     const costFee = useAuth(state => state.costFee)
     // const totalFee = useAuth(state => state.totalFee)
     const shippingFee = useAuth(state => state.shippingFee)
     const [selectedOption, setSelectedOption] = useState('');
-    const mutation = useMutation(createPayUrl)
 
-
-    const formatKoboAmountForDisplay = (amount: number): string => {
-        return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(amount);
-    };
 
     // const customStyles = {
     //     option: (defaultStyles, state) => ({
